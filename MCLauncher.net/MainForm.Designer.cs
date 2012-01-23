@@ -36,6 +36,9 @@
             this.mainTab = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.selectJavaButton = new System.Windows.Forms.Button();
+            this.javaInstallationPath = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.memoryBox = new System.Windows.Forms.TextBox();
@@ -67,10 +70,9 @@
             this.showButton = new System.Windows.Forms.ToolStripMenuItem();
             this.closeButton = new System.Windows.Forms.ToolStripMenuItem();
             this.javaThread = new System.ComponentModel.BackgroundWorker();
-            this.label7 = new System.Windows.Forms.Label();
             this.javaInstallationSelect = new System.Windows.Forms.OpenFileDialog();
-            this.javaInstallationPath = new System.Windows.Forms.TextBox();
-            this.selectJavaButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.langSelect = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
@@ -135,6 +137,8 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.langSelect);
+            this.settingsTab.Controls.Add(this.label8);
             this.settingsTab.Controls.Add(this.selectJavaButton);
             this.settingsTab.Controls.Add(this.javaInstallationPath);
             this.settingsTab.Controls.Add(this.label7);
@@ -149,6 +153,34 @@
             this.settingsTab.TabIndex = 1;
             this.settingsTab.Text = "Advanced Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // selectJavaButton
+            // 
+            this.selectJavaButton.Location = new System.Drawing.Point(691, 49);
+            this.selectJavaButton.Name = "selectJavaButton";
+            this.selectJavaButton.Size = new System.Drawing.Size(75, 23);
+            this.selectJavaButton.TabIndex = 6;
+            this.selectJavaButton.Text = "Browse";
+            this.selectJavaButton.UseVisualStyleBackColor = true;
+            this.selectJavaButton.Click += new System.EventHandler(this.selectJavaButton_Click);
+            // 
+            // javaInstallationPath
+            // 
+            this.javaInstallationPath.Location = new System.Drawing.Point(98, 49);
+            this.javaInstallationPath.Name = "javaInstallationPath";
+            this.javaInstallationPath.ReadOnly = true;
+            this.javaInstallationPath.Size = new System.Drawing.Size(591, 20);
+            this.javaInstallationPath.TabIndex = 5;
+            this.javaInstallationPath.Text = "No java found!";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Java installation";
             // 
             // saveButton
             // 
@@ -437,15 +469,6 @@
             this.javaThread.DoWork += new System.ComponentModel.DoWorkEventHandler(this.javaThread_DoWork);
             this.javaThread.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.javaThread_RunWorkerCompleted);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 49);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Java installation";
-            // 
             // javaInstallationSelect
             // 
             this.javaInstallationSelect.DefaultExt = "exe";
@@ -454,24 +477,23 @@
             this.javaInstallationSelect.InitialDirectory = "%programfiles%";
             this.javaInstallationSelect.Title = "Select Java Installation";
             // 
-            // javaInstallationPath
+            // label8
             // 
-            this.javaInstallationPath.Location = new System.Drawing.Point(98, 49);
-            this.javaInstallationPath.Name = "javaInstallationPath";
-            this.javaInstallationPath.ReadOnly = true;
-            this.javaInstallationPath.Size = new System.Drawing.Size(591, 20);
-            this.javaInstallationPath.TabIndex = 5;
-            this.javaInstallationPath.Text = "No java found!";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(55, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Language";
             // 
-            // selectJavaButton
+            // langSelect
             // 
-            this.selectJavaButton.Location = new System.Drawing.Point(691, 49);
-            this.selectJavaButton.Name = "selectJavaButton";
-            this.selectJavaButton.Size = new System.Drawing.Size(75, 23);
-            this.selectJavaButton.TabIndex = 6;
-            this.selectJavaButton.Text = "Browse";
-            this.selectJavaButton.UseVisualStyleBackColor = true;
-            this.selectJavaButton.Click += new System.EventHandler(this.selectJavaButton_Click);
+            this.langSelect.FormattingEnabled = true;
+            this.langSelect.Location = new System.Drawing.Point(98, 84);
+            this.langSelect.Name = "langSelect";
+            this.langSelect.Size = new System.Drawing.Size(121, 21);
+            this.langSelect.TabIndex = 8;
+            this.langSelect.Text = "en_US";
             // 
             // MainForm
             // 
@@ -546,6 +568,8 @@
         private System.Windows.Forms.Button selectJavaButton;
         private System.Windows.Forms.TextBox javaInstallationPath;
         private System.Windows.Forms.OpenFileDialog javaInstallationSelect;
+        private System.Windows.Forms.ComboBox langSelect;
+        private System.Windows.Forms.Label label8;
     }
 }
 

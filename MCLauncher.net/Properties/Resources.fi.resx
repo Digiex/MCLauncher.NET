@@ -118,93 +118,93 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="advancedsettings" xml:space="preserve">
-    <value>Advanced Settings</value>
+    <value>Lisäasetukset</value>
   </data>
   <data name="browse" xml:space="preserve">
-    <value>Browse</value>
+    <value>Selaa</value>
   </data>
   <data name="cancelled" xml:space="preserve">
-    <value>Cancelled!</value>
+    <value>Peruutettu!</value>
   </data>
   <data name="cantconnectmcnet" xml:space="preserve">
-    <value>Can't connect to minecraft.net</value>
+    <value>Minecraft.netiin ei saada yhteyttä</value>
   </data>
   <data name="checkingmcbans" xml:space="preserve">
-    <value>Checking MCBans...</value>
+    <value>Tarkistetaan MCBansiä...</value>
   </data>
   <data name="done" xml:space="preserve">
-    <value>Done!</value>
+    <value>Valmis!</value>
   </data>
   <data name="error" xml:space="preserve">
-    <value>Error</value>
+    <value>Virhe</value>
   </data>
   <data name="jarmanager" xml:space="preserve">
-    <value>Jar Manager</value>
+    <value>Jarit</value>
   </data>
   <data name="javanotfound" xml:space="preserve">
-    <value>Java not found</value>
+    <value>Javaa ei löytynyt</value>
   </data>
   <data name="javanotfounddesc" xml:space="preserve">
-    <value>Java was not found on this computer. You need Java to run Minecraft. If you do not have Java, you can download it from http://java.com/ \nIf you do have Java, please click Yes and select it.</value>
+    <value>Tietokoneeltasi ei löytynyt Javaa. Tarvitset Javan pelataksesi Minecraftia. Jos sinulla ei ole Javaa, voit ladata sen osoitteesta http://java.com/ \nJos sinulla on Java, Paina Kyllä ja valitse se.</value>
   </data>
   <data name="javapath" xml:space="preserve">
-    <value>Java installation path</value>
+    <value>Javan asennussijainti</value>
   </data>
   <data name="language" xml:space="preserve">
-    <value>Language</value>
+    <value>Kieli</value>
   </data>
   <data name="launch" xml:space="preserve">
     <value>Launch</value>
   </data>
   <data name="loggingin" xml:space="preserve">
-    <value>Logging in...</value>
+    <value>Kirjaudutaan...</value>
   </data>
   <data name="login" xml:space="preserve">
-    <value>Login</value>
+    <value>Kirjaudu</value>
   </data>
   <data name="loginfailed" xml:space="preserve">
-    <value>Login Failed</value>
+    <value>Kirjautuminen epäonnistui</value>
   </data>
   <data name="maxmem" xml:space="preserve">
-    <value>Maximum memory</value>
+    <value>Maksimimuisti</value>
   </data>
   <data name="news" xml:space="preserve">
-    <value>News</value>
+    <value>Uutiset</value>
   </data>
   <data name="outdatedlauncher" xml:space="preserve">
-    <value>Outdated launcher, contact jessenic at digiex.net</value>
+    <value>Vanhentunut käynnistin, ota yhteyttä jesseniciin digiex.netissä</value>
   </data>
   <data name="password" xml:space="preserve">
-    <value>Password</value>
+    <value>Salasana</value>
   </data>
   <data name="processinglogin" xml:space="preserve">
-    <value>Processing login...</value>
+    <value>Valmistellaan kirjautumista</value>
   </data>
   <data name="processingmcbans" xml:space="preserve">
-    <value>Processing MCBans...</value>
+    <value>Valmistellaan MCBansiä</value>
   </data>
   <data name="ready" xml:space="preserve">
-    <value>Ready</value>
+    <value>Valmis</value>
   </data>
   <data name="rememberme" xml:space="preserve">
-    <value>Remember Me</value>
+    <value>Muista minut</value>
   </data>
   <data name="save" xml:space="preserve">
-    <value>Save</value>
+    <value>Tallenna</value>
   </data>
   <data name="screenshots" xml:space="preserve">
-    <value>Screenshots</value>
+    <value>Kuvakaappaukset</value>
   </data>
   <data name="selectjar" xml:space="preserve">
-    <value>Select JAR</value>
+    <value>Valitse JAR</value>
   </data>
   <data name="showingmainframe" xml:space="preserve">
-    <value>Showing the Main Frame...</value>
+    <value>Näytetään pääruutua</value>
   </data>
   <data name="toolowrep" xml:space="preserve">
-    <value>You have too low ban rep! Check MCBans.com!</value>
+    <value>Sinulla on liikaa porttikieltoja! Katso mcbans.com!</value>
   </data>
   <data name="username" xml:space="preserve">
-    <value>Username</value>
+    <value>Käyttäjänimi</value>
   </data>
 </root>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
+using System.Globalization;
 
 namespace MCLauncher.net
 {
@@ -237,6 +238,15 @@ namespace MCLauncher.net
 
             return returnValue;
 
+        }
+        public static string langNode(String node)
+        {
+            String lang = Properties.Settings.Default.lang;
+            if (string.IsNullOrEmpty(lang))
+            {
+                return Properties.Resources.ResourceManager.GetString(node);
+            }
+            return Properties.Resources.ResourceManager.GetString(node, new CultureInfo(lang));
         }
 
     }

@@ -27,6 +27,16 @@ namespace MCLauncher.net
             {
                 this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, "imashark");
             }
+            loadGuiLangs();
+        }
+        private void loadGuiLangs(){
+            this.Text = Util.langNode("login");
+            label1.Text = Util.langNode("username");
+            label2.Text = Util.langNode("password");
+            rememberBox.Text = Util.langNode("rememberme");
+            loginButton.Text = Util.langNode("login");
+            statusText.Text = Util.langNode("ready");
+
         }
         private void UpdateStatusText(string text)
         {
@@ -52,14 +62,14 @@ namespace MCLauncher.net
         {
             worker.ReportProgress(10);
             Console.WriteLine("Checking for bans at mcbans.com...");
-            SetStatusTextInThread("Checking MCBans...");
+            SetStatusTextInThread(Util.langNode("checkingmcbans"));
             Boolean hasBans = false;
             hasBans = lookup(userName);
             //String banned = "0";
             //if (hasBans) {
             //    banned = "1";
             //}
-            SetStatusTextInThread("Logging in...");
+            SetStatusTextInThread(Util.langNode("loggingin"));
             worker.ReportProgress(20);
             try
             {
@@ -70,7 +80,7 @@ namespace MCLauncher.net
                 if (result == null)
                 {
                     Console.WriteLine("Can't conenct to login servers.");
-                    showError("Can't connect to minecraft.net");
+                    showError(Util.langNode("cantconnectmcnet"));
                     //loginForm.setNoNetwork();
                     return;
                 }
@@ -79,12 +89,12 @@ namespace MCLauncher.net
                 {
                     if (result.Trim().Equals("Bad login"))
                     {
-                        showError("Login failed");
+                        showError(Util.langNode("loginfailed"));
                     }
                     else if (result.Trim().Equals("Old version"))
                     {
                         //loginForm.setOutdated();
-                        showError("Outdated launcher, contact jessenic@digiex.net");
+                        showError(Util.langNode("outdatedlauncher"));
                     }
                     else
                     {
@@ -94,17 +104,17 @@ namespace MCLauncher.net
                     return;
                 }
                 worker.ReportProgress(40);
-                SetStatusTextInThread("Processing MCBans...");
+                SetStatusTextInThread(Util.langNode("processingmcbans"));
                 if (hasBans)
                 {
                     System.Diagnostics.Process.Start("http://mcbans.com/player/"
                             + userName + "/");
-                    showError("You have too low ban REP! Check mcbans.com!");
+                    showError(Util.langNode("toolowrep"));
                     return;
 
                 }
 
-                SetStatusTextInThread("Processing login...");
+                SetStatusTextInThread(Util.langNode("processinglogin"));
                 worker.ReportProgress(50);
                 //if (launcherFrame != null) {
                 //    launcherFrame.setTitle("Digiex.net Minecraft Launcher - "
@@ -112,10 +122,6 @@ namespace MCLauncher.net
                 //    launcherFrame.validate();
                 //}
                 String[] values = result.Split(new Char[] { ':' });
-                foreach (String s in values)
-                {
-                    Console.WriteLine("Split: " + s);
-                }
                 Properties.Settings.Default.remember = rememberBox.Checked;
                 if (rememberBox.Checked)
                 {
@@ -131,7 +137,7 @@ namespace MCLauncher.net
                 mf.userName = values[2];
                 mf.sessionId = values[3];
                 mf.response = result;
-                SetStatusTextInThread("Showing the main frame...");
+                SetStatusTextInThread(Util.langNode("showingmainframe"));
                 worker.ReportProgress(100);
                 this.BeginInvoke(new MethodInvoker(Close));
 
@@ -150,7 +156,7 @@ namespace MCLauncher.net
         {
             hasError = true;
             Console.WriteLine("Error: " + error);
-            SetStatusTextInThread("Error: "+error);
+            SetStatusTextInThread(Util.langNode("error") + ": " + error);
         }
         public Boolean lookup(String PlayerName)
         {
@@ -213,14 +219,14 @@ namespace MCLauncher.net
             if ((e.Cancelled == true))
             {
                 Console.WriteLine("Cancelled!");
-                statusText.Text = "Cancelled!";
+                statusText.Text = Util.langNode("cancelled");
                 progressBar1.Value = 0;
             }
 
             else if (!(e.Error == null))
             {
                 Console.WriteLine("Error: " + e.Error.Message);
-                statusText.Text = "Error: "+e.Error.Message;
+                statusText.Text = Util.langNode("error") + ": " + e.Error.Message;
                 progressBar1.Value = 0;
             }
 
@@ -229,7 +235,7 @@ namespace MCLauncher.net
                 if (!hasError)
                 {
                     Console.WriteLine("Done!");
-                    statusText.Text = "Done!";
+                    statusText.Text = Util.langNode("done");
                 }
                 progressBar1.Value = 0;
             }

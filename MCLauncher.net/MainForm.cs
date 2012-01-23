@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -54,7 +55,7 @@ namespace MCLauncher.net
                 loadScreenshots();
             }
             //getServerInfo();
-            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString());
+            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString()+"&lang="+CultureInfo.CurrentUICulture);
             String javaExec = Util.GetJavaExecutable();
             if (javaExec != null && File.Exists(javaExec))
             {
@@ -63,7 +64,7 @@ namespace MCLauncher.net
             }
             else
             {
-                if (MessageBox.Show("Java was not found on this computer. You need Java to run Minecraft. If you do not have Java, you can download it from http://java.com/ \nIf you do have Java, please click OK and select it.", "Java not found", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show(Util.langNode("javanotfounddesc"), Util.langNode("javanotfound"), MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
                     if (javaInstallationSelect.ShowDialog() == DialogResult.OK && javaInstallationSelect.FileName != null)
@@ -85,6 +86,22 @@ namespace MCLauncher.net
                     Environment.Exit(0);
                 }
             }
+            loadGuiLangs();
+        }
+        private void loadGuiLangs()
+        {
+            mainTab.Text = Util.langNode("news");
+            settingsTab.Text = Util.langNode("advancedsettings");
+            jarManager.Text = Util.langNode("jarmanager");
+            screenshotTab.Text = Util.langNode("screenshots");
+            launchButton.Text = Util.langNode("launch");
+            label6.Text = Util.langNode("selectjar");
+            label1.Text = Util.langNode("maxmem");
+            label7.Text = Util.langNode("javapath");
+            label8.Text = Util.langNode("language");
+            selectJavaButton.Text = Util.langNode("browse");
+            saveButton.Text = Util.langNode("save");
+
         }
         public void runMinecraft()
         {
