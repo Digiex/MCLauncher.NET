@@ -27,16 +27,6 @@ namespace MCLauncher.net
             {
                 this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, "imashark");
             }
-            loadGuiLangs();
-        }
-        private void loadGuiLangs(){
-            this.Text = Util.langNode("login");
-            label1.Text = Util.langNode("username");
-            label2.Text = Util.langNode("password");
-            rememberBox.Text = Util.langNode("rememberme");
-            loginButton.Text = Util.langNode("login");
-            statusText.Text = Util.langNode("ready");
-
         }
         private void UpdateStatusText(string text)
         {

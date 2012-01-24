@@ -86,22 +86,6 @@ namespace MCLauncher.net
                     Environment.Exit(0);
                 }
             }
-            loadGuiLangs();
-        }
-        private void loadGuiLangs()
-        {
-            mainTab.Text = Util.langNode("news");
-            settingsTab.Text = Util.langNode("advancedsettings");
-            jarManager.Text = Util.langNode("jarmanager");
-            screenshotTab.Text = Util.langNode("screenshots");
-            launchButton.Text = Util.langNode("launch");
-            label6.Text = Util.langNode("selectjar");
-            label1.Text = Util.langNode("maxmem");
-            label7.Text = Util.langNode("javapath");
-            label8.Text = Util.langNode("language");
-            selectJavaButton.Text = Util.langNode("browse");
-            saveButton.Text = Util.langNode("save");
-
         }
         public void runMinecraft()
         {

@@ -118,11 +118,20 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="DownloadManager.fi.resx">
+      <DependentUpon>DownloadManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DownloadManager.resx">
       <DependentUpon>DownloadManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.fi.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.fi.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
