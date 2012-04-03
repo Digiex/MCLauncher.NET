@@ -61,20 +61,38 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Advanced Settings.
+        ///   Looks up a localized string similar to Added {0} files!.
         /// </summary>
-        internal static string advancedsettings {
+        internal static string addedfiles {
             get {
-                return ResourceManager.GetString("advancedsettings", resourceCulture);
+                return ResourceManager.GetString("addedfiles", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Browse.
+        ///   Looks up a localized string similar to Added these files.
         /// </summary>
-        internal static string browse {
+        internal static string addedthesefiles {
             get {
-                return ResourceManager.GetString("browse", resourceCulture);
+                return ResourceManager.GetString("addedthesefiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adding....
+        /// </summary>
+        internal static string adding {
+            get {
+                return ResourceManager.GetString("adding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bytes.
+        /// </summary>
+        internal static string bytes {
+            get {
+                return ResourceManager.GetString("bytes", resourceCulture);
             }
         }
         
@@ -106,11 +124,92 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not read the Jar!.
+        /// </summary>
+        internal static string couldnotreadjar {
+            get {
+                return ResourceManager.GetString("couldnotreadjar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not save notes. Error:.
+        /// </summary>
+        internal static string couldnotsavenotes {
+            get {
+                return ResourceManager.GetString("couldnotsavenotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download Finished.
+        /// </summary>
+        internal static string dlfinished {
+            get {
+                return ResourceManager.GetString("dlfinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have still downloads going. Closing this window will cancel them all!.
+        /// </summary>
+        internal static string dlmanclose {
+            get {
+                return ResourceManager.GetString("dlmanclose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to close the Download Manager?.
+        /// </summary>
+        internal static string dlmanclosetitle {
+            get {
+                return ResourceManager.GetString("dlmanclosetitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download Starting.
+        /// </summary>
+        internal static string dlstarting {
+            get {
+                return ResourceManager.GetString("dlstarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download Stopped.
+        /// </summary>
+        internal static string dlstopped {
+            get {
+                return ResourceManager.GetString("dlstopped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Done!.
         /// </summary>
         internal static string done {
             get {
                 return ResourceManager.GetString("done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloaded {0} out of {1} ({2}%).
+        /// </summary>
+        internal static string downloadedoutof {
+            get {
+                return ResourceManager.GetString("downloadedoutof", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drag and Drop files here.
+        /// </summary>
+        internal static string dragfileshere {
+            get {
+                return ResourceManager.GetString("dragfileshere", resourceCulture);
             }
         }
         
@@ -124,11 +223,47 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jar Manager.
+        ///   Looks up a localized string similar to Error: {0}.
         /// </summary>
-        internal static string jarmanager {
+        internal static string errordetail {
             get {
-                return ResourceManager.GetString("jarmanager", resourceCulture);
+                return ResourceManager.GetString("errordetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error while saving notes.
+        /// </summary>
+        internal static string errorwhilesavingnotes {
+            get {
+                return ResourceManager.GetString("errorwhilesavingnotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GB.
+        /// </summary>
+        internal static string GB {
+            get {
+                return ResourceManager.GetString("GB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jar not found!.
+        /// </summary>
+        internal static string jarnotfound {
+            get {
+                return ResourceManager.GetString("jarnotfound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jar was not found at {0}. Please check if the file exists..
+        /// </summary>
+        internal static string jarnotfoundat {
+            get {
+                return ResourceManager.GetString("jarnotfoundat", resourceCulture);
             }
         }
         
@@ -151,29 +286,29 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Java installation path.
+        ///   Looks up a localized string similar to KB.
         /// </summary>
-        internal static string javapath {
+        internal static string KB {
             get {
-                return ResourceManager.GetString("javapath", resourceCulture);
+                return ResourceManager.GetString("KB", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language.
+        ///   Looks up a localized string similar to You need to reopen the launcher to change the language..
         /// </summary>
-        internal static string language {
+        internal static string langwillchangeinfo {
             get {
-                return ResourceManager.GetString("language", resourceCulture);
+                return ResourceManager.GetString("langwillchangeinfo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Launch.
+        ///   Looks up a localized string similar to Application restart needed.
         /// </summary>
-        internal static string launch {
+        internal static string langwillchangetitle {
             get {
-                return ResourceManager.GetString("launch", resourceCulture);
+                return ResourceManager.GetString("langwillchangetitle", resourceCulture);
             }
         }
         
@@ -187,15 +322,6 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
-        /// </summary>
-        internal static string login {
-            get {
-                return ResourceManager.GetString("login", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Login Failed.
         /// </summary>
         internal static string loginfailed {
@@ -205,20 +331,11 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum memory.
+        ///   Looks up a localized string similar to MB.
         /// </summary>
-        internal static string maxmem {
+        internal static string MB {
             get {
-                return ResourceManager.GetString("maxmem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to News.
-        /// </summary>
-        internal static string news {
-            get {
-                return ResourceManager.GetString("news", resourceCulture);
+                return ResourceManager.GetString("MB", resourceCulture);
             }
         }
         
@@ -259,47 +376,11 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ready.
+        ///   Looks up a localized string similar to Removed {0}.
         /// </summary>
-        internal static string ready {
+        internal static string removedfile {
             get {
-                return ResourceManager.GetString("ready", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remember Me.
-        /// </summary>
-        internal static string rememberme {
-            get {
-                return ResourceManager.GetString("rememberme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Save.
-        /// </summary>
-        internal static string save {
-            get {
-                return ResourceManager.GetString("save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Screenshots.
-        /// </summary>
-        internal static string screenshots {
-            get {
-                return ResourceManager.GetString("screenshots", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select JAR.
-        /// </summary>
-        internal static string selectjar {
-            get {
-                return ResourceManager.GetString("selectjar", resourceCulture);
+                return ResourceManager.GetString("removedfile", resourceCulture);
             }
         }
         
@@ -313,20 +394,29 @@ namespace MCLauncher.net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Download.
+        /// </summary>
+        internal static string startdl {
+            get {
+                return ResourceManager.GetString("startdl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        internal static string stop {
+            get {
+                return ResourceManager.GetString("stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have too low ban rep! Check MCBans.com!.
         /// </summary>
         internal static string toolowrep {
             get {
                 return ResourceManager.GetString("toolowrep", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Username.
-        /// </summary>
-        internal static string username {
-            get {
-                return ResourceManager.GetString("username", resourceCulture);
             }
         }
     }

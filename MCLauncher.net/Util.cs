@@ -5,6 +5,8 @@ using System.Text;
 using System.Net;
 using System.IO;
 using System.Globalization;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace MCLauncher.net
 {
@@ -248,6 +250,72 @@ namespace MCLauncher.net
             }
             return Properties.Resources.ResourceManager.GetString(node, new CultureInfo(lang));
         }
+        public static string BytesToFileSize(int source)
+        {
+            return BytesToFileSize(Convert.ToInt64(source));
+        }
 
+        public static string BytesToFileSize(long source)
+        {
+            const int byteConversion = 1024;
+            double bytes = Convert.ToDouble(source);
+
+            if (bytes >= Math.Pow(byteConversion, 3)) //GB Range
+            {
+                return string.Concat(Math.Round(bytes / Math.Pow(byteConversion, 3), 2), " " + Util.langNode("GB"));
+            }
+            else if (bytes >= Math.Pow(byteConversion, 2)) //MB Range
+            {
+                return string.Concat(Math.Round(bytes / Math.Pow(byteConversion, 2), 2), " " + Util.langNode("MB"));
+            }
+            else if (bytes >= byteConversion) //KB Range
+            {
+                return string.Concat(Math.Round(bytes / byteConversion, 2), " " + Util.langNode("KB"));
+            }
+            else //Bytes
+            {
+                return string.Concat(bytes, " " + Util.langNode("bytes"));
+            }
+        }
+        public static Image DownloadImage(string _URL)
+        {
+            Image _tmpImage = null;
+
+            try
+            {
+                // Open a connection
+                System.Net.HttpWebRequest _HttpWebRequest = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(_URL);
+
+                _HttpWebRequest.AllowWriteStreamBuffering = true;
+
+                // You can also specify additional header values like the user agent or the referer: (Optional)
+                _HttpWebRequest.UserAgent = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)";
+                _HttpWebRequest.Referer = "http://www.google.com/";
+
+                // set timeout for 20 seconds (Optional)
+                _HttpWebRequest.Timeout = 20000;
+
+                // Request response:
+                System.Net.WebResponse _WebResponse = _HttpWebRequest.GetResponse();
+
+                // Open data stream:
+                System.IO.Stream _WebStream = _WebResponse.GetResponseStream();
+
+                // convert webstream to image
+                _tmpImage = Image.FromStream(_WebStream);
+
+                // Cleanup
+                _WebResponse.Close();
+                _WebResponse.Close();
+            }
+            catch (Exception _Exception)
+            {
+                // Error
+                Console.WriteLine("Exception caught in process: {0}", _Exception.ToString());
+                return null;
+            }
+
+            return _tmpImage;
+        }
     }
 }

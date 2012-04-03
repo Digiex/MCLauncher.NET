@@ -107,8 +107,8 @@
             // 
             // mainTab
             // 
-            resources.ApplyResources(this.mainTab, "mainTab");
             this.mainTab.Controls.Add(this.webBrowser1);
+            resources.ApplyResources(this.mainTab, "mainTab");
             this.mainTab.Name = "mainTab";
             this.mainTab.UseVisualStyleBackColor = true;
             // 
@@ -117,10 +117,10 @@
             resources.ApplyResources(this.webBrowser1, "webBrowser1");
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Url = new System.Uri("about:blank", System.UriKind.Absolute);
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // settingsTab
             // 
-            resources.ApplyResources(this.settingsTab, "settingsTab");
             this.settingsTab.Controls.Add(this.langSelect);
             this.settingsTab.Controls.Add(this.label8);
             this.settingsTab.Controls.Add(this.selectJavaButton);
@@ -130,13 +130,14 @@
             this.settingsTab.Controls.Add(this.label2);
             this.settingsTab.Controls.Add(this.memoryBox);
             this.settingsTab.Controls.Add(this.label1);
+            resources.ApplyResources(this.settingsTab, "settingsTab");
             this.settingsTab.Name = "settingsTab";
             this.settingsTab.UseVisualStyleBackColor = true;
             // 
             // langSelect
             // 
-            resources.ApplyResources(this.langSelect, "langSelect");
             this.langSelect.FormattingEnabled = true;
+            resources.ApplyResources(this.langSelect, "langSelect");
             this.langSelect.Name = "langSelect";
             // 
             // label8
@@ -186,7 +187,6 @@
             // 
             // jarManager
             // 
-            resources.ApplyResources(this.jarManager, "jarManager");
             this.jarManager.Controls.Add(this.downloadButton);
             this.jarManager.Controls.Add(this.fileSizeLabel);
             this.jarManager.Controls.Add(this.fileNameLabel);
@@ -197,6 +197,7 @@
             this.jarManager.Controls.Add(this.label4);
             this.jarManager.Controls.Add(this.label3);
             this.jarManager.Controls.Add(this.jarList);
+            resources.ApplyResources(this.jarManager, "jarManager");
             this.jarManager.Name = "jarManager";
             this.jarManager.UseVisualStyleBackColor = true;
             // 
@@ -260,8 +261,8 @@
             // 
             // jarList
             // 
-            resources.ApplyResources(this.jarList, "jarList");
             this.jarList.AllowDrop = true;
+            resources.ApplyResources(this.jarList, "jarList");
             this.jarList.Name = "jarList";
             this.jarList.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.jarList_AfterSelect);
             this.jarList.DragDrop += new System.Windows.Forms.DragEventHandler(this.jarList_DragDrop);
@@ -269,9 +270,9 @@
             // 
             // screenshotTab
             // 
-            resources.ApplyResources(this.screenshotTab, "screenshotTab");
             this.screenshotTab.Controls.Add(this.refreshButton);
             this.screenshotTab.Controls.Add(this.screenshotView);
+            resources.ApplyResources(this.screenshotTab, "screenshotTab");
             this.screenshotTab.Name = "screenshotTab";
             this.screenshotTab.UseVisualStyleBackColor = true;
             // 
@@ -292,15 +293,15 @@
             // 
             // screenshotRightClick
             // 
-            resources.ApplyResources(this.screenshotRightClick, "screenshotRightClick");
             this.screenshotRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.screenshotDelete});
             this.screenshotRightClick.Name = "screenshotRightClick";
+            resources.ApplyResources(this.screenshotRightClick, "screenshotRightClick");
             // 
             // screenshotDelete
             // 
-            resources.ApplyResources(this.screenshotDelete, "screenshotDelete");
             this.screenshotDelete.Name = "screenshotDelete";
+            resources.ApplyResources(this.screenshotDelete, "screenshotDelete");
             this.screenshotDelete.Click += new System.EventHandler(this.screenshotDelete_Click);
             // 
             // imageList1
@@ -335,29 +336,29 @@
             // 
             // trayIconMenu
             // 
-            resources.ApplyResources(this.trayIconMenu, "trayIconMenu");
             this.trayIconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.forceCloseMC,
             this.showButton,
             this.closeButton});
             this.trayIconMenu.Name = "trayIconMenu";
+            resources.ApplyResources(this.trayIconMenu, "trayIconMenu");
             // 
             // forceCloseMC
             // 
-            resources.ApplyResources(this.forceCloseMC, "forceCloseMC");
             this.forceCloseMC.Name = "forceCloseMC";
+            resources.ApplyResources(this.forceCloseMC, "forceCloseMC");
             this.forceCloseMC.Click += new System.EventHandler(this.forceCloseMC_Click);
             // 
             // showButton
             // 
-            resources.ApplyResources(this.showButton, "showButton");
             this.showButton.Name = "showButton";
+            resources.ApplyResources(this.showButton, "showButton");
             this.showButton.Click += new System.EventHandler(this.showButton_Click);
             // 
             // closeButton
             // 
-            resources.ApplyResources(this.closeButton, "closeButton");
             this.closeButton.Name = "closeButton";
+            resources.ApplyResources(this.closeButton, "closeButton");
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // javaThread
@@ -375,6 +376,7 @@
             // 
             // MainForm
             // 
+            this.AcceptButton = this.launchButton;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.userNameLabel);

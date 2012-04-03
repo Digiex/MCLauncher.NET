@@ -120,78 +120,14 @@
   <data name="launchButton.Text" xml:space="preserve">
     <value>Käynnistä!</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="userNameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
   <data name="userNameLabel.Text" xml:space="preserve">
     <value>Ei kirjautunut!</value>
   </data>
   <data name="mainTab.Text" xml:space="preserve">
     <value>Uutiset</value>
   </data>
-  <data name="settingsTab.Text" xml:space="preserve">
-    <value>Lisäasetukset</value>
-  </data>
-  <data name="downloadButton.Text" xml:space="preserve">
-    <value>Lataa lisää versioita</value>
-  </data>
-  <data name="fileSizeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 24</value>
-  </data>
-  <data name="fileSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
-  <data name="fileSizeLabel.Text" xml:space="preserve">
-    <value>Jaria ei valittu</value>
-  </data>
-  <data name="fileNameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 7</value>
-  </data>
-  <data name="fileNameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
-  <data name="fileNameLabel.Text" xml:space="preserve">
-    <value>Jaria ei valittu</value>
-  </data>
-  <data name="saveNotes.Text" xml:space="preserve">
-    <value>Tallenna</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Lisätiedot:</value>
-  </data>
-  <data name="jarCommentBox.Text" xml:space="preserve">
-    <value>Jaria ei valittu!</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>Modi-asentaja</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 13</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Koko</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Tiedostonimi</value>
-  </data>
-  <data name="jarManager.Text" xml:space="preserve">
-    <value>JAR-hallinta</value>
-  </data>
-  <data name="screenshotTab.Text" xml:space="preserve">
-    <value>Kuvakaappaukset</value>
-  </data>
   <data name="langSelect.Text" xml:space="preserve">
     <value>fi</value>
-  </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 13</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Kieli</value>
@@ -202,66 +138,79 @@
   <data name="javaInstallationPath.Text" xml:space="preserve">
     <value>Javaa ei löytynyt!</value>
   </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
-  </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Javan sijainti</value>
   </data>
   <data name="saveButton.Text" xml:space="preserve">
     <value>Tallenna</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 13</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Muistin varaus</value>
   </data>
-  <data name="modInstallerLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 13</value>
+  <data name="settingsTab.Text" xml:space="preserve">
+    <value>Lisäasetukset</value>
+  </data>
+  <data name="downloadButton.Text" xml:space="preserve">
+    <value>Lataa lisää versioita</value>
+  </data>
+  <data name="fileSizeLabel.Text" xml:space="preserve">
+    <value>Jaria ei valittu</value>
+  </data>
+  <data name="fileNameLabel.Text" xml:space="preserve">
+    <value>Jaria ei valittu</value>
+  </data>
+  <data name="saveNotes.Text" xml:space="preserve">
+    <value>Tallenna</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Lisätiedot:</value>
+  </data>
+  <data name="jarCommentBox.Text" xml:space="preserve">
+    <value>Jaria ei valittu!</value>
   </data>
   <data name="modInstallerLabel.Text" xml:space="preserve">
     <value>Valitse Jar vasemmalta</value>
   </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Modi-asentaja</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Koko</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Tiedostonimi</value>
+  </data>
+  <data name="jarManager.Text" xml:space="preserve">
+    <value>JAR-hallinta</value>
+  </data>
   <data name="refreshButton.Text" xml:space="preserve">
     <value>Päivitä</value>
-  </data>
-  <data name="screenshotRightClick.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 26</value>
-  </data>
-  <data name="screenshotDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
   </data>
   <data name="screenshotDelete.Text" xml:space="preserve">
     <value>Poista</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 13</value>
+  <data name="screenshotTab.Text" xml:space="preserve">
+    <value>Kuvakaappaukset</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Valitse JAR</value>
   </data>
-  <data name="forceCloseMC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
+  <data name="notifyIcon.BalloonTipText" xml:space="preserve">
+    <value>Voit avata sen painamalla tätä kuvaketta hiiren kakkospainikkeella.</value>
+  </data>
+  <data name="notifyIcon.BalloonTipTitle" xml:space="preserve">
+    <value>Digiex .NET Minecraft Launcher on edelleen käynnissä!</value>
   </data>
   <data name="forceCloseMC.Text" xml:space="preserve">
     <value>Pakkosulje Minecraft</value>
   </data>
-  <data name="showButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
-  </data>
   <data name="showButton.Text" xml:space="preserve">
     <value>Näytä</value>
-  </data>
-  <data name="closeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 22</value>
   </data>
   <data name="closeButton.Text" xml:space="preserve">
     <value>Sulje</value>
   </data>
-  <data name="trayIconMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 70</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="notifyIcon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAAAAAAAEAIAAoIAQAVgAAAICAAAABACAAKAgBAH4gBAAwMAAAAQAgAKglAACmKAUAICAAAAEA

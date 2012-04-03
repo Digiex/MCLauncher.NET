@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="advancedsettings" xml:space="preserve">
-    <value>Advanced Settings</value>
+  <data name="addedfiles" xml:space="preserve">
+    <value>Added {0} files!</value>
   </data>
-  <data name="browse" xml:space="preserve">
-    <value>Browse</value>
+  <data name="addedthesefiles" xml:space="preserve">
+    <value>Added these files</value>
+  </data>
+  <data name="adding" xml:space="preserve">
+    <value>Adding...</value>
+  </data>
+  <data name="bytes" xml:space="preserve">
+    <value>Bytes</value>
   </data>
   <data name="cancelled" xml:space="preserve">
     <value>Cancelled!</value>
@@ -132,14 +138,53 @@
   <data name="checkingmcbans" xml:space="preserve">
     <value>Checking MCBans...</value>
   </data>
+  <data name="couldnotreadjar" xml:space="preserve">
+    <value>Could not read the Jar!</value>
+  </data>
+  <data name="couldnotsavenotes" xml:space="preserve">
+    <value>Could not save notes. Error:</value>
+  </data>
+  <data name="dlfinished" xml:space="preserve">
+    <value>Download Finished</value>
+  </data>
+  <data name="dlmanclose" xml:space="preserve">
+    <value>You have still downloads going. Closing this window will cancel them all!</value>
+  </data>
+  <data name="dlmanclosetitle" xml:space="preserve">
+    <value>Do you want to close the Download Manager?</value>
+  </data>
+  <data name="dlstarting" xml:space="preserve">
+    <value>Download Starting</value>
+  </data>
+  <data name="dlstopped" xml:space="preserve">
+    <value>Download Stopped</value>
+  </data>
   <data name="done" xml:space="preserve">
     <value>Done!</value>
+  </data>
+  <data name="downloadedoutof" xml:space="preserve">
+    <value>Downloaded {0} out of {1} ({2}%)</value>
+  </data>
+  <data name="dragfileshere" xml:space="preserve">
+    <value>Drag and Drop files here</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="jarmanager" xml:space="preserve">
-    <value>Jar Manager</value>
+  <data name="errordetail" xml:space="preserve">
+    <value>Error: {0}</value>
+  </data>
+  <data name="errorwhilesavingnotes" xml:space="preserve">
+    <value>Error while saving notes</value>
+  </data>
+  <data name="GB" xml:space="preserve">
+    <value>GB</value>
+  </data>
+  <data name="jarnotfound" xml:space="preserve">
+    <value>Jar not found!</value>
+  </data>
+  <data name="jarnotfoundat" xml:space="preserve">
+    <value>Jar was not found at {0}. Please check if the file exists.</value>
   </data>
   <data name="javanotfound" xml:space="preserve">
     <value>Java not found</value>
@@ -147,29 +192,17 @@
   <data name="javanotfounddesc" xml:space="preserve">
     <value>Java was not found on this computer. You need Java to run Minecraft. If you do not have Java, you can download it from http://java.com/ \nIf you do have Java, please click Yes and select it.</value>
   </data>
-  <data name="javapath" xml:space="preserve">
-    <value>Java installation path</value>
-  </data>
-  <data name="language" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="launch" xml:space="preserve">
-    <value>Launch</value>
+  <data name="KB" xml:space="preserve">
+    <value>KB</value>
   </data>
   <data name="loggingin" xml:space="preserve">
     <value>Logging in...</value>
   </data>
-  <data name="login" xml:space="preserve">
-    <value>Login</value>
-  </data>
   <data name="loginfailed" xml:space="preserve">
     <value>Login Failed</value>
   </data>
-  <data name="maxmem" xml:space="preserve">
-    <value>Maximum memory</value>
-  </data>
-  <data name="news" xml:space="preserve">
-    <value>News</value>
+  <data name="MB" xml:space="preserve">
+    <value>MB</value>
   </data>
   <data name="outdatedlauncher" xml:space="preserve">
     <value>Outdated launcher, contact jessenic at digiex.net</value>
@@ -183,28 +216,25 @@
   <data name="processingmcbans" xml:space="preserve">
     <value>Processing MCBans...</value>
   </data>
-  <data name="ready" xml:space="preserve">
-    <value>Ready</value>
-  </data>
-  <data name="rememberme" xml:space="preserve">
-    <value>Remember Me</value>
-  </data>
-  <data name="save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="screenshots" xml:space="preserve">
-    <value>Screenshots</value>
-  </data>
-  <data name="selectjar" xml:space="preserve">
-    <value>Select JAR</value>
+  <data name="removedfile" xml:space="preserve">
+    <value>Removed {0}</value>
   </data>
   <data name="showingmainframe" xml:space="preserve">
     <value>Showing the Main Frame...</value>
   </data>
+  <data name="startdl" xml:space="preserve">
+    <value>Start Download</value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
   <data name="toolowrep" xml:space="preserve">
     <value>You have too low ban rep! Check MCBans.com!</value>
   </data>
-  <data name="username" xml:space="preserve">
-    <value>Username</value>
+  <data name="langwillchangeinfo" xml:space="preserve">
+    <value>You need to reopen the launcher to change the language.</value>
+  </data>
+  <data name="langwillchangetitle" xml:space="preserve">
+    <value>Application restart needed</value>
   </data>
 </root>

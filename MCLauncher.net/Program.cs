@@ -84,7 +84,7 @@ namespace MCLauncher.net
                 // Since we can't prevent the app from terminating, log this to the event log.
                 //if (!EventLog.SourceExists("ThreadException"))
                 {
-                //    EventLog.CreateEventSource("ThreadException", "Application");
+                    //    EventLog.CreateEventSource("ThreadException", "Application");
                 }
 
                 // Create an EventLog instance and assign its source.
@@ -112,12 +112,12 @@ namespace MCLauncher.net
         {
             Thread oThread = new Thread(new ParameterizedThreadStart(reportErrorThread));
             oThread.Start(ex);
-            
+
         }
         public static void reportErrorThread(object e)
         {
             Exception ex = (Exception)e;
-            String response = Util.excutePost("http://minecraft.digiex.org/errorreport.php", "version="+ System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString() +"&stacktrace=" + Util.EncodeTo64(ex.StackTrace) + "&message=" + Util.EncodeTo64(ex.Message));
+            String response = Util.excutePost("http://minecraft.digiex.org/errorreport.php", "version=" + System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString() + "&stacktrace=" + Util.EncodeTo64(ex.StackTrace) + "&message=" + Util.EncodeTo64(ex.Message) + "&exception=" + Util.EncodeTo64(ex.GetType().ToString()));
             System.Console.WriteLine(response);
         }
         // Creates the error message and displays it.

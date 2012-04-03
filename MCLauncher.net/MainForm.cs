@@ -26,6 +26,10 @@ namespace MCLauncher.net
         string[] jars = Directory.GetFiles(mcDir + @"\bin\", "*.jar");
         public MainForm()
         {
+            if (!String.IsNullOrEmpty(Properties.Settings.Default.lang))
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.lang);
+            }
             InitializeComponent();
             if (userName == null || sessionId == null || response == null)
             {
@@ -55,7 +59,7 @@ namespace MCLauncher.net
                 loadScreenshots();
             }
             //getServerInfo();
-            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString()+"&lang="+CultureInfo.CurrentUICulture);
+            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture);
             String javaExec = Util.GetJavaExecutable();
             if (javaExec != null && File.Exists(javaExec))
             {
@@ -86,6 +90,13 @@ namespace MCLauncher.net
                     Environment.Exit(0);
                 }
             }
+            langSelect.Items.Clear();
+            langSelect.Items.Add("fi");
+            langSelect.Items.Add("en");
+            string currentlang = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+            if(langSelect.Items.Contains(currentlang)){
+            langSelect.SelectedItem = currentlang;
+            }
         }
         public void runMinecraft()
         {
@@ -113,12 +124,33 @@ namespace MCLauncher.net
         {
             Properties.Settings.Default.maxmem = memoryBox.Text + "M";
             Properties.Settings.Default.javaExecutable = javaInstallationPath.Text;
+            string selectedlang = (string)langSelect.SelectedItem;
+            if (selectedlang != null)
+            {
+                if (langSelect.Items.Contains(selectedlang) && Properties.Settings.Default.lang != selectedlang)
+                {
+                    Properties.Settings.Default.lang = selectedlang;
+                    MessageBox.Show(Util.langNode("langwillchangeinfo"), Util.langNode("langwillchangetitle"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(selectedlang);
+                }
+            }
             Properties.Settings.Default.Save();
         }
         private void initJarMan()
         {
             //imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(jars[1]));
-            imageList1.Images.Add(Image.FromFile("images\\jarformat.ico"));
+            try
+            {
+                imageList1.Images.Add(Image.FromFile("images\\jarformat.ico"));
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(jars[1]));
+                }
+                catch (Exception) { }
+            }
             jarList.ImageList = imageList1;
 
             foreach (String jar in jars)
@@ -135,33 +167,7 @@ namespace MCLauncher.net
                 jarList.Nodes.Add(node);
             }
         }
-        public static string ToFileSize(int source)
-        {
-            return ToFileSize(Convert.ToInt64(source));
-        }
 
-        public static string ToFileSize(long source)
-        {
-            const int byteConversion = 1024;
-            double bytes = Convert.ToDouble(source);
-
-            if (bytes >= Math.Pow(byteConversion, 3)) //GB Range
-            {
-                return string.Concat(Math.Round(bytes / Math.Pow(byteConversion, 3), 2), " GB");
-            }
-            else if (bytes >= Math.Pow(byteConversion, 2)) //MB Range
-            {
-                return string.Concat(Math.Round(bytes / Math.Pow(byteConversion, 2), 2), " MB");
-            }
-            else if (bytes >= byteConversion) //KB Range
-            {
-                return string.Concat(Math.Round(bytes / byteConversion, 2), " KB");
-            }
-            else //Bytes
-            {
-                return string.Concat(bytes, " Bytes");
-            }
-        }
 
         private void jarList_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -171,55 +177,21 @@ namespace MCLauncher.net
                 jarBox.Items.Remove(System.IO.Path.GetFileName(e.Node.Name));
                 return;
             }
-            modInstallerLabel.Text = "Drag and Drop files here";
+            modInstallerLabel.Text = Util.langNode("dragfileshere");
             saveNotes.Enabled = true;
             jarCommentBox.Enabled = true;
             fileNameLabel.Text = System.IO.Path.GetFileName(e.Node.Name);
-            fileSizeLabel.Text = ToFileSize((new FileInfo(e.Node.Name)).Length);
+            fileSizeLabel.Text = Util.BytesToFileSize((new FileInfo(e.Node.Name)).Length);
             ZipFile zf = null;
             try
             {
                 FileStream fs = File.OpenRead(e.Node.Name);
                 zf = new ZipFile(fs);
                 jarCommentBox.Text = zf.ZipFileComment;
-                //if (!String.IsNullOrEmpty(password))
-                //{
-                //    zf.Password = password;		// AES encrypted entries are handled automatically
-                //}
-                //foreach (ZipEntry zipEntry in zf)
-                {
-
-                    //System.Console.WriteLine(zipEntry.Name);
-                    //if (!zipEntry.IsFile)
-                    {
-                        //     continue;			// Ignore directories
-                    }
-                    //String entryFileName = zipEntry.Name;
-                    // to remove the folder from the entry:- entryFileName = Path.GetFileName(entryFileName);
-                    // Optionally match entrynames against a selection list here to skip as desired.
-                    // The unpacked length is available in the zipEntry.Size property.
-
-                    //byte[] buffer = new byte[4096];		// 4K is optimum
-                    //Stream zipStream = zf.GetInputStream(zipEntry);
-
-                    // Manipulate the output filename here as desired.
-                    //String fullZipToPath = Path.Combine(outFolder, entryFileName);
-                    //string directoryName = Path.GetDirectoryName(fullZipToPath);
-                    //if (directoryName.Length > 0)
-                    //Directory.CreateDirectory(directoryName);
-
-                    // Unzip file in buffered chunks. This is just as fast as unpacking to a buffer the full size
-                    // of the file, but does not waste memory.
-                    // The "using" will close the stream even if an exception occurs.
-                    // using (FileStream streamWriter = File.Create(fullZipToPath))
-                    {
-                        //    StreamUtils.Copy(zipStream, streamWriter, buffer);
-                    }
-                }
             }
             catch (Exception ex)
             {
-                jarCommentBox.Text = "Could not read the jar! " + ex.Message + "\r\n" + ex.StackTrace;
+                jarCommentBox.Text = Util.langNode("couldnotreadjar") + " " + ex.Message + "\r\n" + ex.StackTrace;
             }
             finally
             {
@@ -236,10 +208,10 @@ namespace MCLauncher.net
         {
             try
             {
-                modInstallerLabel.Text = "Adding...";
+                modInstallerLabel.Text = Util.langNode("adding");
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
                 ZipFile zf = new ZipFile(jarList.SelectedNode.Name);
-                String comment = zf.ZipFileComment + "\r\n--- Added these files ---\r\n";
+                String comment = zf.ZipFileComment + "\r\n--- " + DateTime.Now + " " + Util.langNode("addedthesefiles") + " ---\r\n";
                 zf.BeginUpdate();
                 int i = 0;
                 foreach (string file in files)
@@ -256,7 +228,6 @@ namespace MCLauncher.net
                         foreach (string fileindir in filesindir)
                         {
                             Console.WriteLine("Adding " + fileindir.Replace(Directory.GetParent(file).FullName, ""));
-                            modInstallerLabel.Text = "Adding " + System.IO.Path.GetFileName(fileindir);
                             zf.Add(fileindir, fileindir.Replace(Directory.GetParent(file).FullName, ""));
                             comment += fileindir.Replace(Directory.GetParent(file).FullName, "") + "\r\n";
                             i++;
@@ -265,7 +236,6 @@ namespace MCLauncher.net
                     }
                     else
                     {
-                        modInstallerLabel.Text = "Adding " + System.IO.Path.GetFileName(file);
                         zf.Add(file, System.IO.Path.GetFileName(file));
                         comment += System.IO.Path.GetFileName(file) + "\r\n";
                         i++;
@@ -275,18 +245,18 @@ namespace MCLauncher.net
                 if (mi != null)
                 {
                     zf.Delete(mi);
-                    comment += "Removed META-INF\r\n";
+                    comment += String.Format(Util.langNode("removedfile"), "META-INF") + "\r\n";
                 }
                 zf.SetComment(comment);
                 jarCommentBox.Text = comment;
                 zf.CommitUpdate();
                 zf.Close();
-                modInstallerLabel.Text = "Added " + i + " files!";
+                modInstallerLabel.Text = String.Format(Util.langNode("addedfiles"), i);
             }
             catch (Exception ex)
             {
                 System.Console.WriteLine("Could not write: " + ex.Message + "\r\n" + ex.StackTrace);
-                modInstallerLabel.Text = "Error: " + ex.Message;
+                modInstallerLabel.Text = String.Format(Util.langNode("errordetail"), ex.Message);
             }
 
         }
@@ -335,7 +305,7 @@ namespace MCLauncher.net
                     catch
                     {
 
-                        Console.WriteLine("This is not an image file");
+                        Console.WriteLine(file.Name + " is not an image file");
 
                     }
 
@@ -391,7 +361,7 @@ namespace MCLauncher.net
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "Could not save notes. Error: " + ex.Message + "\n" + ex.StackTrace, "Error while saving notes", MessageBoxButtons.OK);
+                MessageBox.Show(this, Util.langNode("couldnotsavenotes") + " " + ex.Message + "\n" + ex.StackTrace, Util.langNode("errorwhilesavingnotes"), MessageBoxButtons.OK);
             }
         }
 
@@ -429,6 +399,8 @@ namespace MCLauncher.net
                 Console.WriteLine("Jar (" + Util.getWorkingDirectory()
                     + "\\bin\\" + jarName
                         + ") not found!");
+                MessageBox.Show(String.Format(Util.langNode("jarnotfoundat"), Util.getWorkingDirectory()
+                    + "\\bin\\" + jarName), Util.langNode("jarnotfound"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             proc = new System.Diagnostics.Process();
@@ -634,6 +606,15 @@ namespace MCLauncher.net
             if (javaInstallationSelect.ShowDialog() == DialogResult.OK && javaInstallationSelect.FileName != null)
             {
                 javaInstallationPath.Text = javaInstallationSelect.FileName;
+            }
+        }
+
+        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            if (e.Url.Host != "minecraft.digiex.org" || e.Url.ToString().Contains("openinbrowser"))
+            {
+                System.Diagnostics.Process.Start(e.Url.ToString());
+                e.Cancel = true;
             }
         }
 

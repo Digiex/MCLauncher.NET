@@ -66,9 +66,9 @@ namespace MCLauncher.net
             {
                 listBox1.Enabled = false;
                 fileNameBox.Enabled = false;
-                downloadButton.Text = "Stop";
+                downloadButton.Text = Util.langNode("stop");
                 // Let the user know we are connecting to the server
-                statusLabel.Text = "Download Starting";
+                statusLabel.Text = Util.langNode("dlstarting");
                 // Create a new thread that calls the Download() method
                 thrDownload = new Thread(Download);
                 // Start the thread, and thus call Download()
@@ -84,10 +84,10 @@ namespace MCLauncher.net
                 strLocal.Close();
                 // Set the progress bar back to 0 and the label
                 toolStripProgressBar1.Value = 0;
-                statusLabel.Text = "Download Stopped";
+                statusLabel.Text = Util.langNode("dlstopped");
                 listBox1.Enabled = true;
                 fileNameBox.Enabled = true;
-                downloadButton.Text = "Start Download";
+                downloadButton.Text = Util.langNode("startdl");
             }
         }
         private void DownloadComplete()
@@ -99,21 +99,21 @@ namespace MCLauncher.net
             }
             File.Move(MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar.tmp", outfile);
             listBox1.Enabled = true;
-            downloadButton.Text = "Start Download";
+            downloadButton.Text = Util.langNode("startdl");
             fileNameBox.Enabled = true;
             toolStripProgressBar1.Value = 0;
-            statusLabel.Text = "Download Finished";
+            statusLabel.Text = Util.langNode("dlfinished");
             TreeNode node = new TreeNode();
-            node.Text = Path.GetFileName(url);
+            node.Text = fileNameBox.Text + ".jar";
             node.ImageIndex = 0;
             node.Name = MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar";
             if (!mf.jarList.Nodes.Contains(node))
             {
                 mf.jarList.Nodes.Add(node);
             }
-            if (!mf.jarBox.Items.Contains(Path.GetFileName(url)))
+            if (!mf.jarBox.Items.Contains(fileNameBox.Text + ".jar"))
             {
-                mf.jarBox.Items.Add(Path.GetFileName(url));
+                mf.jarBox.Items.Add(fileNameBox.Text + ".jar");
             }
 
         }
@@ -124,7 +124,7 @@ namespace MCLauncher.net
             // Make progress on the progress bar
             toolStripProgressBar1.Value = PercentProgress;
             // Display the current progress on the form
-            statusLabel.Text = "Downloaded " + BytesRead + " out of " + TotalBytes + " (" + PercentProgress + "%)";
+            statusLabel.Text = String.Format(Util.langNode("downloadedoutof"), Util.BytesToFileSize(BytesRead), Util.BytesToFileSize(TotalBytes), PercentProgress);
         }
 
         private void Download()
@@ -186,9 +186,9 @@ namespace MCLauncher.net
                 {
                     if (DialogResult.Yes != MessageBox.Show(
 
-                        "You have still downloads going. Closing this window will cancel them all!",
+                        Util.langNode("dlmanclose"),
 
-                        "Do you want to close the Download Manager?",
+                        Util.langNode("dlmanclosetitle"),
 
                          MessageBoxButtons.YesNo,
 

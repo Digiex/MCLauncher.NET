@@ -39,7 +39,7 @@ namespace MCLauncher.net
             this.Invoke(callback, new object[] { text });
 
         }
- 
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (loginWorker.IsBusy != true)
@@ -77,21 +77,33 @@ namespace MCLauncher.net
                 worker.ReportProgress(30);
                 if (!result.Contains(":"))
                 {
-                    if (result.Trim().Equals("Bad login"))
+                    Boolean debug = false;
+                    if (Debugger.IsAttached)
                     {
-                        showError(Util.langNode("loginfailed"));
+                        if (MessageBox.Show("Login Failed. Do you want to play offline?", "Login Failed", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            debug = true;
+                            result = "123:123:Player:123:123:123:123";
+                        }
                     }
-                    else if (result.Trim().Equals("Old version"))
+                    if (!debug)
                     {
-                        //loginForm.setOutdated();
-                        showError(Util.langNode("outdatedlauncher"));
+                        if (result.Trim().Equals("Bad login"))
+                        {
+                            showError(Util.langNode("loginfailed"));
+                        }
+                        else if (result.Trim().Equals("Old version"))
+                        {
+                            //loginForm.setOutdated();
+                            showError(Util.langNode("outdatedlauncher"));
+                        }
+                        else
+                        {
+                            showError(result);
+                        }
+                        //loginForm.setNoNetwork();
+                        return;
                     }
-                    else
-                    {
-                        showError(result);
-                    }
-                    //loginForm.setNoNetwork();
-                    return;
                 }
                 worker.ReportProgress(40);
                 SetStatusTextInThread(Util.langNode("processingmcbans"));

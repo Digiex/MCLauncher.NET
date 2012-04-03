@@ -88,22 +88,22 @@
             // 
             // statusBar
             // 
-            resources.ApplyResources(this.statusBar, "statusBar");
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusText,
             this.progressBar1});
+            resources.ApplyResources(this.statusBar, "statusBar");
             this.statusBar.Name = "statusBar";
             // 
             // statusText
             // 
-            resources.ApplyResources(this.statusText, "statusText");
             this.statusText.Name = "statusText";
+            resources.ApplyResources(this.statusText, "statusText");
             // 
             // progressBar1
             // 
-            resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.progressBar1.Name = "progressBar1";
+            resources.ApplyResources(this.progressBar1, "progressBar1");
             // 
             // Login
             // 

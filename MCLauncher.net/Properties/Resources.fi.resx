@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="advancedsettings" xml:space="preserve">
-    <value>Lisäasetukset</value>
+  <data name="addedfiles" xml:space="preserve">
+    <value>Lisättiin {0} tiedostoa!</value>
   </data>
-  <data name="browse" xml:space="preserve">
-    <value>Selaa</value>
+  <data name="addedthesefiles" xml:space="preserve">
+    <value>Lisättiin nämä tiedostot</value>
+  </data>
+  <data name="adding" xml:space="preserve">
+    <value>Lisätään...</value>
+  </data>
+  <data name="bytes" xml:space="preserve">
+    <value>Bittiä</value>
   </data>
   <data name="cancelled" xml:space="preserve">
     <value>Peruutettu!</value>
@@ -132,14 +138,50 @@
   <data name="checkingmcbans" xml:space="preserve">
     <value>Tarkistetaan MCBansiä...</value>
   </data>
+  <data name="couldnotreadjar" xml:space="preserve">
+    <value>Virhe Jaria luettaessa!</value>
+  </data>
+  <data name="couldnotsavenotes" xml:space="preserve">
+    <value>Virhe lisätietojen tallennuksessa. Virhe:</value>
+  </data>
+  <data name="dlfinished" xml:space="preserve">
+    <value>Lataus valmis</value>
+  </data>
+  <data name="dlmanclose" xml:space="preserve">
+    <value>Latauksia on vielä kesken. Sulkeminen peruuttaa ne kaikki!</value>
+  </data>
+  <data name="dlmanclosetitle" xml:space="preserve">
+    <value>Haluatko varmasti sulkea lataustenhallinnan?</value>
+  </data>
+  <data name="dlstarting" xml:space="preserve">
+    <value>Latausta aloitetaan</value>
+  </data>
+  <data name="dlstopped" xml:space="preserve">
+    <value>Lataus pysäytetty</value>
+  </data>
   <data name="done" xml:space="preserve">
     <value>Valmis!</value>
+  </data>
+  <data name="downloadedoutof" xml:space="preserve">
+    <value>Ladattu {0} / {1} ({2}%)</value>
+  </data>
+  <data name="dragfileshere" xml:space="preserve">
+    <value>Vedä ja pudota tiedostot tähän</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>Virhe</value>
   </data>
-  <data name="jarmanager" xml:space="preserve">
-    <value>Jarit</value>
+  <data name="errorwhilesavingnotes" xml:space="preserve">
+    <value>Virhe lisätietoja tallennettaessa</value>
+  </data>
+  <data name="GB" xml:space="preserve">
+    <value>Gt</value>
+  </data>
+  <data name="jarnotfound" xml:space="preserve">
+    <value>Jaria ei löytynyt!</value>
+  </data>
+  <data name="jarnotfoundat" xml:space="preserve">
+    <value>Jaria ei löytynyt kohteesta {0}. Tarkista, että tiedosto on olemassa.</value>
   </data>
   <data name="javanotfound" xml:space="preserve">
     <value>Javaa ei löytynyt</value>
@@ -147,35 +189,20 @@
   <data name="javanotfounddesc" xml:space="preserve">
     <value>Tietokoneeltasi ei löytynyt Javaa. Tarvitset Javan pelataksesi Minecraftia. Jos sinulla ei ole Javaa, voit ladata sen osoitteesta http://java.com/ \nJos sinulla on Java, Paina Kyllä ja valitse se.</value>
   </data>
-  <data name="javapath" xml:space="preserve">
-    <value>Javan asennussijainti</value>
-  </data>
-  <data name="language" xml:space="preserve">
-    <value>Kieli</value>
-  </data>
-  <data name="launch" xml:space="preserve">
-    <value>Launch</value>
+  <data name="KB" xml:space="preserve">
+    <value>Kt</value>
   </data>
   <data name="loggingin" xml:space="preserve">
     <value>Kirjaudutaan...</value>
   </data>
-  <data name="login" xml:space="preserve">
-    <value>Kirjaudu</value>
-  </data>
   <data name="loginfailed" xml:space="preserve">
     <value>Kirjautuminen epäonnistui</value>
   </data>
-  <data name="maxmem" xml:space="preserve">
-    <value>Maksimimuisti</value>
-  </data>
-  <data name="news" xml:space="preserve">
-    <value>Uutiset</value>
+  <data name="MB" xml:space="preserve">
+    <value>Mt</value>
   </data>
   <data name="outdatedlauncher" xml:space="preserve">
     <value>Vanhentunut käynnistin, ota yhteyttä jesseniciin digiex.netissä</value>
-  </data>
-  <data name="password" xml:space="preserve">
-    <value>Salasana</value>
   </data>
   <data name="processinglogin" xml:space="preserve">
     <value>Valmistellaan kirjautumista</value>
@@ -183,28 +210,25 @@
   <data name="processingmcbans" xml:space="preserve">
     <value>Valmistellaan MCBansiä</value>
   </data>
-  <data name="ready" xml:space="preserve">
-    <value>Valmis</value>
-  </data>
-  <data name="rememberme" xml:space="preserve">
-    <value>Muista minut</value>
-  </data>
-  <data name="save" xml:space="preserve">
-    <value>Tallenna</value>
-  </data>
-  <data name="screenshots" xml:space="preserve">
-    <value>Kuvakaappaukset</value>
-  </data>
-  <data name="selectjar" xml:space="preserve">
-    <value>Valitse JAR</value>
+  <data name="removedfile" xml:space="preserve">
+    <value>Poistettiin {0}</value>
   </data>
   <data name="showingmainframe" xml:space="preserve">
     <value>Näytetään pääruutua</value>
   </data>
+  <data name="startdl" xml:space="preserve">
+    <value>Aloita lataus</value>
+  </data>
+  <data name="stop" xml:space="preserve">
+    <value>Keskeytä</value>
+  </data>
   <data name="toolowrep" xml:space="preserve">
     <value>Sinulla on liikaa porttikieltoja! Katso mcbans.com!</value>
   </data>
-  <data name="username" xml:space="preserve">
-    <value>Käyttäjänimi</value>
+  <data name="langwillchangeinfo" xml:space="preserve">
+    <value>Sovellus on käynnistettävä uudelleen ennen kuin uudet kieliasetukset astuvat voimaan.</value>
+  </data>
+  <data name="langwillchangetitle" xml:space="preserve">
+    <value>Sovelluksen uudelleenkäynnistys vaaditaan</value>
   </data>
 </root>
