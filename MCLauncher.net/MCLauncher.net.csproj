@@ -75,8 +75,9 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -148,6 +149,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Content Include="favicon.ico" />
+    <Content Include="ICSharpCode.SharpZipLib.dll" />
     <Content Include="images\jarformat.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
