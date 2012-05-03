@@ -124,7 +124,7 @@
     <value>Kirjaudu</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Käyttäjänimi</value>
+    <value>Käyttäjänimi tai sähköpostiosoite</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Salasana</value>

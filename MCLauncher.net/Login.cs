@@ -14,6 +14,7 @@ namespace MCLauncher.net
     public partial class Login : Form
     {
         private delegate void SetTextCallback(string text);
+        private delegate void ShowErrorCallback(string text);
         private MainForm mf;
         public Login(MainForm mf)
         {
@@ -25,7 +26,7 @@ namespace MCLauncher.net
             String cryptedPass = Properties.Settings.Default.password;
             if (cryptedPass.Length > 0)
             {
-                this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, "imashark");
+                this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, Environment.UserName + "isashark");
             }
         }
         private void UpdateStatusText(string text)
@@ -51,14 +52,6 @@ namespace MCLauncher.net
         public void login(String userName, String password, BackgroundWorker worker)
         {
             worker.ReportProgress(10);
-            Console.WriteLine("Checking for bans at mcbans.com...");
-            SetStatusTextInThread(Util.langNode("checkingmcbans"));
-            Boolean hasBans = false;
-            hasBans = lookup(userName);
-            //String banned = "0";
-            //if (hasBans) {
-            //    banned = "1";
-            //}
             SetStatusTextInThread(Util.langNode("loggingin"));
             worker.ReportProgress(20);
             try
@@ -70,8 +63,7 @@ namespace MCLauncher.net
                 if (result == null)
                 {
                     Console.WriteLine("Can't conenct to login servers.");
-                    showError(Util.langNode("cantconnectmcnet"));
-                    //loginForm.setNoNetwork();
+                    ShowErrorInThread(Util.langNode("cantconnectmcnet"));
                     return;
                 }
                 worker.ReportProgress(30);
@@ -90,45 +82,29 @@ namespace MCLauncher.net
                     {
                         if (result.Trim().Equals("Bad login"))
                         {
-                            showError(Util.langNode("loginfailed"));
+                            ShowErrorInThread(Util.langNode("loginfailed"));
                         }
                         else if (result.Trim().Equals("Old version"))
                         {
-                            //loginForm.setOutdated();
-                            showError(Util.langNode("outdatedlauncher"));
+                            ShowErrorInThread(Util.langNode("outdatedlauncher"));
                         }
                         else
                         {
-                            showError(result);
+                            ShowErrorInThread(result);
                         }
-                        //loginForm.setNoNetwork();
                         return;
                     }
                 }
                 worker.ReportProgress(40);
-                SetStatusTextInThread(Util.langNode("processingmcbans"));
-                if (hasBans)
-                {
-                    System.Diagnostics.Process.Start("http://mcbans.com/player/"
-                            + userName + "/");
-                    showError(Util.langNode("toolowrep"));
-                    return;
-
-                }
 
                 SetStatusTextInThread(Util.langNode("processinglogin"));
                 worker.ReportProgress(50);
-                //if (launcherFrame != null) {
-                //    launcherFrame.setTitle("Digiex.net Minecraft Launcher - "
-                //            + jarName);
-                //    launcherFrame.validate();
-                //}
                 String[] values = result.Split(new Char[] { ':' });
                 Properties.Settings.Default.remember = rememberBox.Checked;
                 if (rememberBox.Checked)
                 {
-                    Properties.Settings.Default.username = values[2];
-                    Properties.Settings.Default.password = Crypto.EncryptStringAES(passwordBox.Text, "imashark");
+                    Properties.Settings.Default.username = userNameBox.Text;
+                    Properties.Settings.Default.password = Crypto.EncryptStringAES(passwordBox.Text, Environment.UserName + "isashark");
                 }
                 else
                 {
@@ -142,72 +118,26 @@ namespace MCLauncher.net
                 SetStatusTextInThread(Util.langNode("showingmainframe"));
                 worker.ReportProgress(100);
                 this.BeginInvoke(new MethodInvoker(Close));
-
-
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.StackTrace);
-                showError(e.Message);
-                //loginForm.setNoNetwork();
+                ShowErrorInThread(e.Message);
             }
         }
         private static Boolean hasError = false;
-        private void showError(String error)
+        private void ShowErrorInThread(String error)
+        {
+
+            SetTextCallback callback = new SetTextCallback(ShowError);
+            this.Invoke(callback, new object[] { error });
+        }
+        private void ShowError(String error)
         {
             hasError = true;
             Console.WriteLine("Error: " + error);
             SetStatusTextInThread(Util.langNode("error") + ": " + error);
-        }
-        public Boolean lookup(String PlayerName)
-        {
-            Boolean banned = false;
-
-            String result = Util.excuteGet("http://minecraft.digiex.org/mcbans.php", "username="
-                    + PlayerName + "&version=3");
-            using (StringReader reader = new StringReader(result))
-            {
-                int i = 0;
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    i++;
-                    Console.WriteLine("[MCBans] " + line);
-                    if (i == 1)
-                    {
-                        if (line.Contains("REP"))
-                        {
-                            String[] reps = line.Replace("REP ", "").Split(new Char[] { ' ', 'o', 'f', ' ' });
-                            if (reps.Length == 2)
-                            {
-                                try
-                                {
-                                    if (Double.Parse(reps[0]) < Double.Parse(reps[1]))
-                                    {
-                                        banned = true;
-                                    }
-                                }
-                                catch (Exception ex)
-                                {
-                                    Console.WriteLine(ex.StackTrace);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-
-            if (banned)
-            {
-                Console.WriteLine("Too low rep, sorry!");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            MessageBox.Show(this, error, Util.langNode("error"), MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
 
         private void loginWorker_DoWork(object sender, DoWorkEventArgs e)
