@@ -14,4 +14,5 @@ The Launcher is developed by @jessenic for [Digiex.net](http://digiex.net). Howe
 You can get the source for free at [https://github.com/Digiex/MCLauncher.NET/](https://github.com/Digiex/MCLauncher.NET/) and you are allowed to redistribute the source code in these conditions:
 * You have asked the author's ( @jessenic ) permission OR
 * You are hosting the source code on GitHub in a project created with the Fork button on [https://github.com/Digiex/MCLauncher.NET/](https://github.com/Digiex/MCLauncher.NET/).
+
 You are not allowed to distribute any binaries created from the source code or parts of the source without the permission of the author ( @jessenic ).
