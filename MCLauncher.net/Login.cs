@@ -26,7 +26,14 @@ namespace MCLauncher.net
             String cryptedPass = Properties.Settings.Default.password;
             if (cryptedPass.Length > 0)
             {
-                this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, Environment.UserName + "isashark");
+                try
+                {
+                    this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, Environment.UserName + "isashark");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Could not decrypt the password: " + ex.Message);
+                }
             }
         }
         private void UpdateStatusText(string text)
