@@ -58,8 +58,13 @@ namespace MCLauncher.net
             {
                 loadScreenshots();
             }
-            //getServerInfo();
-            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture);
+            string CommitID = "unknown";
+            if (File.Exists("commitid.txt"))
+            {
+                CommitID = File.ReadAllText("commitid.txt").Substring(0,40);
+                System.Console.WriteLine("Commit ID is " + CommitID);
+            }
+            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture + "&commit=" + CommitID);
             String javaExec = Util.GetJavaExecutable();
             if (javaExec != null && File.Exists(javaExec))
             {
@@ -94,8 +99,9 @@ namespace MCLauncher.net
             langSelect.Items.Add("fi");
             langSelect.Items.Add("en");
             string currentlang = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-            if(langSelect.Items.Contains(currentlang)){
-            langSelect.SelectedItem = currentlang;
+            if (langSelect.Items.Contains(currentlang))
+            {
+                langSelect.SelectedItem = currentlang;
             }
         }
         public void runMinecraft()

@@ -4,3 +4,6 @@ MCLauncher.net/obj
 
 # mstest test results
 TestResults
+
+#Git commit id file
+MCLauncher.net/commitid.txt
