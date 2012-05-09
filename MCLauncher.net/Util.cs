@@ -65,11 +65,6 @@ namespace MCLauncher.net
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             return new StreamReader(response.GetResponseStream()).ReadToEnd();
         }
-        /**
-          * Checks the operating system
-          * 
-         * @return OS (enum)
-          */
         private static OS getPlatform()
         {
             System.OperatingSystem osInfo = System.Environment.OSVersion;
@@ -88,11 +83,6 @@ namespace MCLauncher.net
             }
         }
 
-        /**
-          * Gets the working firectory
-          * 
-         * @return File working directory
-          */
         public static String getWorkingDirectory()
         {
             if (workDir == null)
@@ -103,13 +93,6 @@ namespace MCLauncher.net
             return workDir;
         }
 
-        /**
-          * Gets the default working directory
-          * 
-         * @param applicationName
-          *            Always "minecraft" for this app
-          * @return File working directory
-          */
         public static String getWorkingDirectory(String applicationName)
         {
             String userHome = Environment.GetEnvironmentVariable("home");
@@ -118,24 +101,24 @@ namespace MCLauncher.net
             {
                 case OS.linux:
                 case OS.solaris:
-                    workingDirectory = userHome + "\\." + applicationName;
+                    workingDirectory = userHome + Path.DirectorySeparatorChar + "." + applicationName;
                     break;
                 case OS.windows:
                     String applicationData = Environment.GetEnvironmentVariable("appdata");
                     if (applicationData != null)
                     {
-                        workingDirectory = applicationData + "\\." + applicationName;
+                        workingDirectory = applicationData + Path.DirectorySeparatorChar + "." + applicationName;
                     }
                     else
                     {
-                        workingDirectory = userHome + "\\." + applicationName;
+                        workingDirectory = userHome + Path.DirectorySeparatorChar + "." + applicationName;
                     }
                     break;
                 case OS.macos:
-                    workingDirectory = userHome + "\\Library\\Application Support\\" + applicationName;
+                    workingDirectory = userHome + Path.DirectorySeparatorChar + "Library" + Path.DirectorySeparatorChar + "Application Support" + Path.DirectorySeparatorChar + applicationName;
                     break;
                 default:
-                    workingDirectory = userHome + "\\" + applicationName;
+                    workingDirectory = userHome + Path.DirectorySeparatorChar + applicationName;
                     break;
             }
             createSubdirs(workingDirectory);
@@ -156,33 +139,45 @@ namespace MCLauncher.net
                     return;
                 }
             }
-            if (!Directory.Exists(dir + "\\bin"))
+            if (!Directory.Exists(dir + Path.DirectorySeparatorChar + "bin"))
             {
                 try
                 {
-                    Directory.CreateDirectory(dir + "\\bin");
+                    Directory.CreateDirectory(dir + Path.DirectorySeparatorChar + "bin");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Bin directory " + dir + "\\bin cannot be created!");
+                    Console.WriteLine("Bin directory " + dir + Path.DirectorySeparatorChar + "bin cannot be created!");
                     Console.WriteLine(ex.StackTrace);
                     return;
                 }
             }
-            if (!Directory.Exists(dir + "\\bin\\natives"))
+            if (!Directory.Exists(dir + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "natives"))
             {
                 try
                 {
-                    Directory.CreateDirectory(dir + "\\bin\\natives");
+                    Directory.CreateDirectory(dir + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "natives");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Natives directory " + dir + "\\bin\\natives cannot be created!");
+                    Console.WriteLine("Natives directory " + dir + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + "natives cannot be created!");
                     Console.WriteLine(ex.StackTrace);
                     return;
                 }
             }
         }
+
+        public static string GetJavaExecutableName()
+        {
+            switch (getPlatform())
+            {
+                case OS.windows:
+                    return "javaw.exe";
+                default:
+                    return "java";
+            }
+        }
+
         public static string GetJavaExecutable()
         {
             try
@@ -196,27 +191,34 @@ namespace MCLauncher.net
                     }
 
                 }
+                javaExec = GetFullPath(GetJavaExecutableName());
+                if (File.Exists(javaExec))
+                {
+                    return javaExec;
+                }
                 string environmentPath = Environment.GetEnvironmentVariable("JAVA_HOME");
                 if (!string.IsNullOrEmpty(environmentPath))
                 {
-                    javaExec = environmentPath + @"\bin\javaw.exe";
+                    javaExec = environmentPath + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + GetJavaExecutableName();
                     if (File.Exists(javaExec))
                     {
                         return javaExec;
                     }
                 }
-
-                string javaKey = "SOFTWARE\\JavaSoft\\Java Runtime Environment\\";
-
-                using (Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(javaKey))
+                if (getPlatform() == OS.windows)
                 {
-                    string currentVersion = rk.GetValue("CurrentVersion").ToString();
-                    using (Microsoft.Win32.RegistryKey key = rk.OpenSubKey(currentVersion))
+                    string javaKey = "SOFTWARE\\JavaSoft\\Java Runtime Environment\\";
+
+                    using (Microsoft.Win32.RegistryKey rk = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(javaKey))
                     {
-                        javaExec = key.GetValue("JavaHome").ToString() + @"\bin\javaw.exe";
-                        if (File.Exists(javaExec))
+                        string currentVersion = rk.GetValue("CurrentVersion").ToString();
+                        using (Microsoft.Win32.RegistryKey key = rk.OpenSubKey(currentVersion))
                         {
-                            return javaExec;
+                            javaExec = key.GetValue("JavaHome").ToString() + @"\bin\javaw.exe";
+                            if (File.Exists(javaExec))
+                            {
+                                return javaExec;
+                            }
                         }
                     }
                 }
@@ -316,6 +318,27 @@ namespace MCLauncher.net
             }
 
             return _tmpImage;
+        }
+        public static bool ExistsOnPath(string fileName)
+        {
+            if (GetFullPath(fileName) != null)
+                return true;
+            return false;
+        }
+
+        public static string GetFullPath(string fileName)
+        {
+            if (File.Exists(fileName))
+                return Path.GetFullPath(fileName);
+
+            var values = Environment.GetEnvironmentVariable("PATH");
+            foreach (var path in values.Split(Path.PathSeparator))
+            {
+                var fullPath = Path.Combine(path, fileName);
+                if (File.Exists(fullPath))
+                    return fullPath;
+            }
+            return null;
         }
     }
 }

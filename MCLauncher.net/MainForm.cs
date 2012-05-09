@@ -23,7 +23,7 @@ namespace MCLauncher.net
         public String response;
         private String jarName = "minecraft.jar";
         public static String mcDir = Util.getWorkingDirectory();
-        string[] jars = Directory.GetFiles(mcDir + @"\bin\", "*.jar");
+        string[] jars = Directory.GetFiles(mcDir + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar, "*.jar");
         public MainForm()
         {
             if (!String.IsNullOrEmpty(Properties.Settings.Default.lang))
@@ -39,6 +39,7 @@ namespace MCLauncher.net
                 {
                     Environment.Exit(0);
                 }
+                l.Dispose();
             }
             userNameLabel.Text = userName;
             initJarMan();
@@ -61,7 +62,7 @@ namespace MCLauncher.net
             string CommitID = "unknown";
             if (File.Exists("commitid.txt"))
             {
-                CommitID = File.ReadAllText("commitid.txt").Substring(0,40);
+                CommitID = File.ReadAllText("commitid.txt").Substring(0, 40);
                 System.Console.WriteLine("Commit ID is " + CommitID);
             }
             webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture + "&commit=" + CommitID);
@@ -147,7 +148,7 @@ namespace MCLauncher.net
             //imageList1.Images.Add(System.Drawing.Icon.ExtractAssociatedIcon(jars[1]));
             try
             {
-                imageList1.Images.Add(Image.FromFile("images\\jarformat.ico"));
+                imageList1.Images.Add(Image.FromFile("images" + Path.DirectorySeparatorChar + "jarformat.ico"));
             }
             catch (Exception)
             {
@@ -281,7 +282,7 @@ namespace MCLauncher.net
         private void loadScreenshots()
         {
             screens_loaded = true;
-            DirectoryInfo dir = new DirectoryInfo(mcDir + @"\screenshots");
+            DirectoryInfo dir = new DirectoryInfo(mcDir + Path.DirectorySeparatorChar + "screenshots");
             int i = 0;
             if (dir.Exists && dir.GetFiles().Length > 0)
             {
@@ -399,14 +400,14 @@ namespace MCLauncher.net
             String javaExec = Util.GetJavaExecutable();
             Console.WriteLine("Java found at " + javaExec);
             Boolean exists = File.Exists(Util.getWorkingDirectory()
-                    + "\\bin\\" + jarName);
+                    + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + jarName);
             if (!exists)
             {
                 Console.WriteLine("Jar (" + Util.getWorkingDirectory()
-                    + "\\bin\\" + jarName
+                    + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + jarName
                         + ") not found!");
                 MessageBox.Show(String.Format(Util.langNode("jarnotfoundat"), Util.getWorkingDirectory()
-                    + "\\bin\\" + jarName), Util.langNode("jarnotfound"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + jarName), Util.langNode("jarnotfound"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             proc = new System.Diagnostics.Process();
@@ -482,7 +483,7 @@ namespace MCLauncher.net
                     if (Path.GetExtension(file) == ".jar")
                     {
                         System.Console.WriteLine("Copying " + file);
-                        File.Copy(file, mcDir + @"\bin\" + Path.GetFileName(file));
+                        File.Copy(file, mcDir + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar + Path.GetFileName(file));
                         TreeNode node = new TreeNode();
                         node.Text = Path.GetFileName(file);
                         node.ImageIndex = 0;
