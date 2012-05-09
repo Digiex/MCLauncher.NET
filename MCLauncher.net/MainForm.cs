@@ -67,6 +67,18 @@ namespace MCLauncher.net
             }
             webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture + "&commit=" + CommitID);
             String javaExec = Util.GetJavaExecutable();
+            String javaExecName = Util.GetJavaExecutableName();
+            javaInstallationSelect.FileName = javaExecName;
+            javaInstallationSelect.Filter = javaExecName + "|" + javaExecName + "|All Files|*";
+            try
+            {
+                javaInstallationSelect.DefaultExt = Path.GetExtension(javaExecName);
+            }
+            catch (Exception) { }
+            if (Util.getPlatform() == Util.OS.windows)
+            {
+                javaInstallationSelect.InitialDirectory = "%programfiles%";
+            }
             if (javaExec != null && File.Exists(javaExec))
             {
                 javaInstallationPath.Text = javaExec;

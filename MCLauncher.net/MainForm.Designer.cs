@@ -369,10 +369,7 @@
             // 
             // javaInstallationSelect
             // 
-            this.javaInstallationSelect.DefaultExt = "exe";
-            this.javaInstallationSelect.FileName = "javaw.exe";
             resources.ApplyResources(this.javaInstallationSelect, "javaInstallationSelect");
-            this.javaInstallationSelect.InitialDirectory = "%programfiles%";
             // 
             // MainForm
             // 

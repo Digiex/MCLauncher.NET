@@ -12,7 +12,7 @@ namespace MCLauncher.net
 {
     class Util
     {
-        private enum OS
+        public enum OS
         {
             linux, solaris, windows, macos, unknown
         }
@@ -65,7 +65,7 @@ namespace MCLauncher.net
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             return new StreamReader(response.GetResponseStream()).ReadToEnd();
         }
-        private static OS getPlatform()
+        public static OS getPlatform()
         {
             System.OperatingSystem osInfo = System.Environment.OSVersion;
             switch (osInfo.Platform)

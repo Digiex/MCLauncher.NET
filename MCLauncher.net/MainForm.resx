@@ -7273,9 +7273,6 @@
   <metadata name="javaInstallationSelect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>799, 17</value>
   </metadata>
-  <data name="javaInstallationSelect.Filter" xml:space="preserve">
-    <value>Javaw|javaw.exe</value>
-  </data>
   <data name="javaInstallationSelect.Title" xml:space="preserve">
     <value>Select Java Installation</value>
   </data>
