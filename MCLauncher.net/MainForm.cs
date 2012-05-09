@@ -207,6 +207,8 @@ namespace MCLauncher.net
                 FileStream fs = File.OpenRead(e.Node.Name);
                 zf = new ZipFile(fs);
                 jarCommentBox.Text = zf.ZipFileComment;
+                fs.Close();
+                fs.Dispose();
             }
             catch (Exception ex)
             {
@@ -309,7 +311,7 @@ namespace MCLauncher.net
 
                         this.screenshotImageList.Images.Add(System.Drawing.Image.FromStream(fs));
                         fs.Close();
-
+                        fs.Dispose();
 
                         ListViewItem item = new ListViewItem();
                         item.Name = file.FullName;
@@ -520,6 +522,8 @@ namespace MCLauncher.net
         {
             DownloadManager dlman = new DownloadManager(this);
             dlman.ShowDialog();
+            dlman.Close();
+            dlman.Dispose();
         }
 
         private void selectJavaButton_Click(object sender, EventArgs e)

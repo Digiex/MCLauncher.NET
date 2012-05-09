@@ -307,8 +307,9 @@ namespace MCLauncher.net
                 _tmpImage = Image.FromStream(_WebStream);
 
                 // Cleanup
+                _WebStream.Close();
                 _WebResponse.Close();
-                _WebResponse.Close();
+                _WebStream.Dispose();
             }
             catch (Exception _Exception)
             {
