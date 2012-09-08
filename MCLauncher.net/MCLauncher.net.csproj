@@ -167,9 +167,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="commitid.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="favicon.ico" />
     <None Include="ICSharpCode.SharpZipLib.dll" />
     <Content Include="images\jarformat.ico">
@@ -257,7 +254,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>copy $(SolutionDir)\.git\refs\heads\master $(ProjectDir)\commitid.txt</PreBuildEvent>
+    <PreBuildEvent>copy $(SolutionDir)\.git\refs\heads\master $(OutDir)\commitid.txt</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
