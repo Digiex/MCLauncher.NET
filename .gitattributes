@@ -1,0 +1,9 @@
+# Windows Style Line endings
+*.sln        eol=crlf
+*.csproj     eol=crlf
+*.xml        eol=crlf
+*.config     eol=crlf
+*.cs         eol=crlf
+*.resx       eol=crlf
+*.settings   eol=crlf
+*.txt        eol=crlf
