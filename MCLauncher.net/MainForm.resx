@@ -315,6 +315,66 @@
   <data name="&gt;&gt;webBrowser1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.Name" xml:space="preserve">
+    <value>windowSizeY</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.Name" xml:space="preserve">
+    <value>windowSizeX</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="&gt;&gt;langSelect.Name" xml:space="preserve">
     <value>langSelect</value>
   </data>
@@ -325,7 +385,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;langSelect.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
@@ -337,7 +397,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;selectJavaButton.Name" xml:space="preserve">
     <value>selectJavaButton</value>
@@ -349,7 +409,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;selectJavaButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;javaInstallationPath.Name" xml:space="preserve">
     <value>javaInstallationPath</value>
@@ -361,7 +421,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;javaInstallationPath.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
@@ -373,7 +433,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;saveButton.Name" xml:space="preserve">
     <value>saveButton</value>
@@ -385,7 +445,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -397,7 +457,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;memoryBox.Name" xml:space="preserve">
     <value>memoryBox</value>
@@ -409,7 +469,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;memoryBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -421,7 +481,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>13</value>
   </data>
   <data name="settingsTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -450,8 +510,35 @@
   <data name="&gt;&gt;settingsTab.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 119</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Game window size</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="langSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 84</value>
+    <value>106, 84</value>
   </data>
   <data name="langSelect.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 21</value>
@@ -472,7 +559,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;langSelect.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>5</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -499,7 +586,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>6</value>
   </data>
   <data name="selectJavaButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>691, 49</value>
@@ -523,10 +610,10 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;selectJavaButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>7</value>
   </data>
   <data name="javaInstallationPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 49</value>
+    <value>106, 49</value>
   </data>
   <data name="javaInstallationPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>591, 20</value>
@@ -547,7 +634,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;javaInstallationPath.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>8</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -574,7 +661,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>9</value>
   </data>
   <data name="saveButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -601,13 +688,13 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>10</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 19</value>
+    <value>212, 18</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 13</value>
@@ -628,10 +715,10 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>11</value>
   </data>
   <data name="memoryBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 15</value>
+    <value>106, 15</value>
   </data>
   <data name="memoryBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -652,7 +739,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;memoryBox.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>12</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -679,7 +766,7 @@
     <value>settingsTab</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>13</value>
   </data>
   <data name="&gt;&gt;downloadButton.Name" xml:space="preserve">
     <value>downloadButton</value>
@@ -7276,8 +7363,107 @@
   <data name="javaInstallationSelect.Title" xml:space="preserve">
     <value>Select Java Installation</value>
   </data>
+  <data name="windowSizeX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 119</value>
+  </data>
+  <data name="windowSizeX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="windowSizeX.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.Name" xml:space="preserve">
+    <value>windowSizeX</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;windowSizeX.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 125</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>12, 13</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="windowSizeY.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 119</value>
+  </data>
+  <data name="windowSizeY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="windowSizeY.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.Name" xml:space="preserve">
+    <value>windowSizeY</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;windowSizeY.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>257, 125</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 13</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>TODO: Implement this in the java based launcher</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>settingsTab</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>40</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>

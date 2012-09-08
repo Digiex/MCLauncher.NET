@@ -36,6 +36,7 @@
             this.mainTab = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.langSelect = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.selectJavaButton = new System.Windows.Forms.Button();
@@ -73,6 +74,10 @@
             this.closeButton = new System.Windows.Forms.ToolStripMenuItem();
             this.javaThread = new System.ComponentModel.BackgroundWorker();
             this.javaInstallationSelect = new System.Windows.Forms.OpenFileDialog();
+            this.windowSizeX = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.windowSizeY = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.mainTab.SuspendLayout();
             this.settingsTab.SuspendLayout();
@@ -121,6 +126,11 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.Controls.Add(this.label11);
+            this.settingsTab.Controls.Add(this.windowSizeY);
+            this.settingsTab.Controls.Add(this.label10);
+            this.settingsTab.Controls.Add(this.windowSizeX);
+            this.settingsTab.Controls.Add(this.label9);
             this.settingsTab.Controls.Add(this.langSelect);
             this.settingsTab.Controls.Add(this.label8);
             this.settingsTab.Controls.Add(this.selectJavaButton);
@@ -133,6 +143,11 @@
             resources.ApplyResources(this.settingsTab, "settingsTab");
             this.settingsTab.Name = "settingsTab";
             this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
             // 
             // langSelect
             // 
@@ -371,6 +386,26 @@
             // 
             resources.ApplyResources(this.javaInstallationSelect, "javaInstallationSelect");
             // 
+            // windowSizeX
+            // 
+            resources.ApplyResources(this.windowSizeX, "windowSizeX");
+            this.windowSizeX.Name = "windowSizeX";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
+            // windowSizeY
+            // 
+            resources.ApplyResources(this.windowSizeY, "windowSizeY");
+            this.windowSizeY.Name = "windowSizeY";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
             // MainForm
             // 
             this.AcceptButton = this.launchButton;
@@ -444,6 +479,11 @@
         private System.Windows.Forms.OpenFileDialog javaInstallationSelect;
         private System.Windows.Forms.ComboBox langSelect;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox windowSizeY;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox windowSizeX;
+        private System.Windows.Forms.Label label11;
     }
 }
 

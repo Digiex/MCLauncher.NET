@@ -249,6 +249,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCLauncherLibrary\MCLauncherLibrary.csproj">
+      <Project>{1FFAB672-4005-45DC-AE77-2ADD44B7D978}</Project>
+      <Name>MCLauncherLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>copy $(SolutionDir)\.git\refs\heads\master $(ProjectDir)\commitid.txt</PreBuildEvent>

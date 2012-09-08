@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using MCLauncher.net.Properties;
+using System.Collections;
 
 namespace MCLauncher.net
 {
@@ -19,21 +21,22 @@ namespace MCLauncher.net
         public Login(MainForm mf)
         {
             this.mf = mf;
-            InitializeComponent();
-            userNameBox.Text = Properties.Settings.Default.username;
-            rememberBox.Checked = Properties.Settings.Default.remember;
-            this.AcceptButton = loginButton;
-            String cryptedPass = Properties.Settings.Default.password;
-            if (cryptedPass.Length > 0)
+            if (Settings.Default.lastusers == null)
             {
-                try
-                {
-                    this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, Environment.UserName + "isashark");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Could not decrypt the password: " + ex.Message);
-                }
+                Settings.Default.lastusers = new MCLauncherLibrary.SerializableStringDictionary();
+                Settings.Default.Save();
+            }
+            InitializeComponent();
+            rememberBox.Checked = Settings.Default.remember;
+            this.AcceptButton = loginButton;
+            foreach (String key in Settings.Default.lastusers.Keys)
+            {
+                userNameBox.AutoCompleteCustomSource.Add(key);
+                userNameBox.Items.Add(key);
+            }
+            if (userNameBox.Items.Contains(Settings.Default.username))
+            {
+                userNameBox.SelectedItem = Settings.Default.username;
             }
         }
         private void UpdateStatusText(string text)
@@ -107,18 +110,24 @@ namespace MCLauncher.net
                 SetStatusTextInThread(Util.langNode("processinglogin"));
                 worker.ReportProgress(50);
                 String[] values = result.Split(new Char[] { ':' });
-                Properties.Settings.Default.remember = rememberBox.Checked;
+                Settings.Default.remember = rememberBox.Checked;
+                if (Settings.Default.lastusers.ContainsKey(userName))
+                {
+                    Settings.Default.lastusers.Remove(userName);
+                }
                 if (rememberBox.Checked)
                 {
-                    Properties.Settings.Default.username = userNameBox.Text;
-                    Properties.Settings.Default.password = Crypto.EncryptStringAES(passwordBox.Text, Environment.UserName + "isashark");
+                    Settings.Default.username = userName;
+                    Settings.Default.lastusers.Add(userName, Crypto.EncryptStringAES(password, Environment.UserName + "isashark"));
                 }
                 else
                 {
-                    Properties.Settings.Default.username = "";
-                    Properties.Settings.Default.password = "";
+                    if (Settings.Default.username == userName)
+                    {
+                        Settings.Default.username = "";
+                    }
                 }
-                Properties.Settings.Default.Save();
+                Settings.Default.Save();
                 mf.userName = values[2];
                 mf.sessionId = values[3];
                 mf.response = result;
@@ -150,7 +159,12 @@ namespace MCLauncher.net
         private void loginWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            login(userNameBox.Text, passwordBox.Text, worker);
+            string username = "";
+            this.Invoke((MethodInvoker)delegate()
+            {
+                username = userNameBox.Text;
+            });
+            login(username, passwordBox.Text, worker);
 
         }
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -182,6 +196,7 @@ namespace MCLauncher.net
         }
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            if(progressBar1 != null)
             progressBar1.Value = e.ProgressPercentage;
         }
 
@@ -208,6 +223,29 @@ namespace MCLauncher.net
                 loginButton.Enabled = true;
             }
 
+        }
+
+        private void userNameBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (Settings.Default.lastusers.ContainsKey(userNameBox.Text))
+            {
+                String cryptedPass = Settings.Default.lastusers[userNameBox.Text];
+                if (cryptedPass.Length > 0)
+                {
+                    try
+                    {
+                        this.passwordBox.Text = Crypto.DecryptStringAES(cryptedPass, Environment.UserName + "isashark");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Could not decrypt the password: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                this.passwordBox.Text = "";
+            }
         }
 
 

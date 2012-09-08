@@ -14,13 +14,13 @@
     <Setting Name="lastjar" Type="System.String" Scope="User">
       <Value Profile="(Default)">minecraft.jar</Value>
     </Setting>
-    <Setting Name="password" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="javaExecutable" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="lang" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="lastusers" Type="System.Collections.Specialized.StringDictionary" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

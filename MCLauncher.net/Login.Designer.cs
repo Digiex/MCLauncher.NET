@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.userNameBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.rememberBox = new System.Windows.Forms.CheckBox();
             this.loginButton = new System.Windows.Forms.Button();
@@ -39,14 +38,9 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.statusText = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.userNameBox = new System.Windows.Forms.ComboBox();
             this.statusBar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // userNameBox
-            // 
-            resources.ApplyResources(this.userNameBox, "userNameBox");
-            this.userNameBox.Name = "userNameBox";
-            this.userNameBox.TextChanged += new System.EventHandler(this.userNameBox_TextChanged);
             // 
             // passwordBox
             // 
@@ -105,17 +99,27 @@
             this.progressBar1.Name = "progressBar1";
             resources.ApplyResources(this.progressBar1, "progressBar1");
             // 
+            // userNameBox
+            // 
+            this.userNameBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.userNameBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.userNameBox.FormattingEnabled = true;
+            resources.ApplyResources(this.userNameBox, "userNameBox");
+            this.userNameBox.Name = "userNameBox";
+            this.userNameBox.SelectedValueChanged += new System.EventHandler(this.userNameBox_SelectedValueChanged);
+            this.userNameBox.TextChanged += new System.EventHandler(this.userNameBox_TextChanged);
+            // 
             // Login
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.userNameBox);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.rememberBox);
             this.Controls.Add(this.passwordBox);
-            this.Controls.Add(this.userNameBox);
             this.Name = "Login";
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
@@ -126,7 +130,6 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox userNameBox;
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.CheckBox rememberBox;
         private System.Windows.Forms.Button loginButton;
@@ -136,5 +139,6 @@
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripStatusLabel statusText;
         private System.Windows.Forms.ToolStripProgressBar progressBar1;
+        private System.Windows.Forms.ComboBox userNameBox;
     }
 }

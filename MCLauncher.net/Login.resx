@@ -118,36 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="userNameBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 32</value>
-  </data>
-  <data name="userNameBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 20</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="userNameBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;userNameBox.Name" xml:space="preserve">
-    <value>userNameBox</value>
-  </data>
-  <data name="&gt;&gt;userNameBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userNameBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;userNameBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="passwordBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 71</value>
   </data>
   <data name="passwordBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>229, 20</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="passwordBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;passwordBox.Name" xml:space="preserve">
     <value>passwordBox</value>
@@ -159,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;passwordBox.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="rememberBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -171,7 +150,7 @@
     <value>95, 17</value>
   </data>
   <data name="rememberBox.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="rememberBox.Text" xml:space="preserve">
     <value>Remember Me</value>
@@ -186,7 +165,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rememberBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="loginButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -202,7 +181,7 @@
     <value>75, 23</value>
   </data>
   <data name="loginButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="loginButton.Text" xml:space="preserve">
     <value>Login</value>
@@ -217,7 +196,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;loginButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="loginWorker.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -247,7 +226,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -274,7 +253,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="statusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>136, 17</value>
@@ -313,6 +292,27 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusBar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="userNameBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 31</value>
+  </data>
+  <data name="userNameBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>229, 21</value>
+  </data>
+  <data name="userNameBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;userNameBox.Name" xml:space="preserve">
+    <value>userNameBox</value>
+  </data>
+  <data name="&gt;&gt;userNameBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userNameBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;userNameBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

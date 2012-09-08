@@ -15,17 +15,19 @@ namespace MCLauncher.net
         [STAThread]
         static void Main()
         {
-            // Add the event handler for handling UI thread exceptions to the event.
-            Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);
+            if (!Debugger.IsAttached)
+            {
+                // Add the event handler for handling UI thread exceptions to the event.
+                Application.ThreadException += new ThreadExceptionEventHandler(Application_ThreadException);
 
-            // Set the unhandled exception mode to force all Windows Forms errors to go through
-            // our handler.
-            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+                // Set the unhandled exception mode to force all Windows Forms errors to go through
+                // our handler.
+                Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
-            // Add the event handler for handling non-UI thread exceptions to the event. 
-            AppDomain.CurrentDomain.UnhandledException +=
-                new UnhandledExceptionEventHandler(Application_UnhandledException);
-
+                // Add the event handler for handling non-UI thread exceptions to the event. 
+                AppDomain.CurrentDomain.UnhandledException +=
+                    new UnhandledExceptionEventHandler(Application_UnhandledException);
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
