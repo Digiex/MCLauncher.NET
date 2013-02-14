@@ -190,7 +190,8 @@ namespace MCLauncher.net
                     Console.WriteLine("Done!");
                     statusText.Text = Util.langNode("done");
                 }
-                progressBar1.Value = 0;
+                //This form is going to be disposed anyway so the next line is not needed
+                //progressBar1.Value = 0;
             }
             loginButton.Enabled = true;
         }
