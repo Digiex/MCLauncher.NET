@@ -138,6 +138,9 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="DownloadManager.en.resx">
+      <DependentUpon>DownloadManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DownloadManager.fi.resx">
       <DependentUpon>DownloadManager.cs</DependentUpon>
     </EmbeddedResource>

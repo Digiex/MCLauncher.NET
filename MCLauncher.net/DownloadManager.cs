@@ -58,14 +58,18 @@ namespace MCLauncher.net
             listBox1.DataSource = new BindingSource(list, null);
             listBox1.DisplayMember = "Value";
             listBox1.ValueMember = "Key";
+            saveFileDialog1.InitialDirectory = MainForm.mcDir + @"\bin\";
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
             if (thrDownload == null || !thrDownload.IsAlive)
             {
+                if (saveFileDialog1.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                {
+                    return;
+                }
                 listBox1.Enabled = false;
-                fileNameBox.Enabled = false;
                 downloadButton.Text = Util.langNode("stop");
                 // Let the user know we are connecting to the server
                 statusLabel.Text = Util.langNode("dlstarting");
@@ -86,34 +90,27 @@ namespace MCLauncher.net
                 toolStripProgressBar1.Value = 0;
                 statusLabel.Text = Util.langNode("dlstopped");
                 listBox1.Enabled = true;
-                fileNameBox.Enabled = true;
                 downloadButton.Text = Util.langNode("startdl");
             }
         }
         private void DownloadComplete()
         {
-            String outfile = MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar";
-            if (File.Exists(MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar"))
-            {
-                outfile = MainForm.mcDir + @"\bin\" + fileNameBox.Text + "_" + new Random().Next(0, 9000) + ".jar";
-            }
-            File.Move(MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar.tmp", outfile);
+            String outfile = saveFileDialog1.FileName;
+            File.Move(outfile + ".tmp", outfile);
             listBox1.Enabled = true;
             downloadButton.Text = Util.langNode("startdl");
-            fileNameBox.Enabled = true;
             toolStripProgressBar1.Value = 0;
             statusLabel.Text = Util.langNode("dlfinished");
             TreeNode node = new TreeNode();
-            node.Text = fileNameBox.Text + ".jar";
             node.ImageIndex = 0;
-            node.Name = MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar";
+            node.Name = outfile;
             if (!mf.jarList.Nodes.Contains(node))
             {
                 mf.jarList.Nodes.Add(node);
             }
-            if (!mf.jarBox.Items.Contains(fileNameBox.Text + ".jar"))
+            if (!mf.jarBox.Items.Contains(Path.GetFileName(outfile)))
             {
-                mf.jarBox.Items.Add(fileNameBox.Text + ".jar");
+                mf.jarBox.Items.Add(Path.GetFileName(outfile));
             }
 
         }
@@ -145,7 +142,7 @@ namespace MCLauncher.net
                     // Open the URL for download 
                     strResponse = wcDownload.OpenRead(url);
                     // Create a new file stream where we will be saving the data (local drive)
-                    strLocal = new FileStream(MainForm.mcDir + @"\bin\" + fileNameBox.Text + ".jar.tmp", FileMode.Create, FileAccess.Write, FileShare.None);
+                    strLocal = new FileStream(saveFileDialog1.FileName + ".tmp", FileMode.Create, FileAccess.Write, FileShare.None);
 
                     // It will store the current number of bytes we retrieved from the server
                     int bytesSize = 0;
@@ -218,29 +215,14 @@ namespace MCLauncher.net
         {
             if (listBox1.SelectedItems.Count > 0)
             {
-                fileNameBox.Enabled = true;
-                fileNameBox.Text = Path.GetFileNameWithoutExtension(listBox1.SelectedValue.ToString());
+                saveFileDialog1.FileName = Path.GetFileName(listBox1.SelectedValue.ToString());
                 downloadButton.Enabled = true;
                 url = listBox1.SelectedValue.ToString();
             }
             else
             {
-                fileNameBox.Enabled = false;
-                fileNameBox.Text = "";
                 downloadButton.Enabled = false;
                 url = "";
-            }
-        }
-
-        private void fileNameBox_TextChanged(object sender, EventArgs e)
-        {
-            if (fileNameBox.Text.Length < 1)
-            {
-                fileNameBox.Enabled = false;
-            }
-            else
-            {
-                fileNameBox.Enabled = true;
             }
         }
     }
