@@ -1,28 +1,31 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCLauncher.net", "MCLauncher.net\MCLauncher.net.csproj", "{B72FE39B-F20D-47BA-A675-6A994FB84901}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCLauncherLibrary", "MCLauncherLibrary\MCLauncherLibrary.csproj", "{1FFAB672-4005-45DC-AE77-2ADD44B7D978}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1FFAB672-4005-45DC-AE77-2ADD44B7D978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FFAB672-4005-45DC-AE77-2ADD44B7D978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FFAB672-4005-45DC-AE77-2ADD44B7D978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FFAB672-4005-45DC-AE77-2ADD44B7D978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72FE39B-F20D-47BA-A675-6A994FB84901}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MCLauncher.net\MCLauncher.net.csproj
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
