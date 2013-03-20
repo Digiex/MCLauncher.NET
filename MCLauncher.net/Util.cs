@@ -95,7 +95,7 @@ namespace MCLauncher.net
 
         public static String getWorkingDirectory(String applicationName)
         {
-            String userHome = Environment.GetEnvironmentVariable("home");
+            String userHome = Environment.GetEnvironmentVariable("HOME");
             String workingDirectory;
             switch (getPlatform())
             {

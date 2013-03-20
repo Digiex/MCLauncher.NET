@@ -65,7 +65,13 @@ namespace MCLauncher.net
                 CommitID = File.ReadAllText("commitid.txt").Substring(0, 40);
                 System.Console.WriteLine("Commit ID is " + CommitID);
             }
-            webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture + "&commit=" + CommitID);
+            //Fix for Mono if libgluezilla is not installed
+            try{
+                webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture + "&commit=" + CommitID);
+            }catch(Exception){
+                tabControl.Controls.Remove (mainTab);
+                tabControl.SelectTab(jarManager);
+            }
             String javaExec = Util.GetJavaExecutable();
             String javaExecName = Util.GetJavaExecutableName();
             javaInstallationSelect.FileName = javaExecName;

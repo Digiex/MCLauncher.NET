@@ -121,7 +121,7 @@
             // 
             resources.ApplyResources(this.webBrowser1, "webBrowser1");
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Url = new System.Uri("about:blank", System.UriKind.Absolute);
+            //this.webBrowser1.Url = new System.Uri("about:blank", System.UriKind.Absolute);
             this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // settingsTab

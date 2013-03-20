@@ -10,6 +10,8 @@ using System.IO;
 using System.Diagnostics;
 using MCLauncher.net.Properties;
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
+using System.Net;
 
 namespace MCLauncher.net
 {
@@ -38,6 +40,10 @@ namespace MCLauncher.net
             {
                 userNameBox.SelectedItem = Settings.Default.username;
             }
+            try{
+                //Fix for Mono
+                ServicePointManager.CertificatePolicy = new CertValidator();
+            }catch(Exception){}
         }
         private void UpdateStatusText(string text)
         {
@@ -249,7 +255,15 @@ namespace MCLauncher.net
             }
         }
 
-
+        public class CertValidator : ICertificatePolicy
+        {
+ 
+            public bool CheckValidationResult (ServicePoint sp, 
+        X509Certificate certificate, WebRequest request, int error)
+            {
+                return true;
+            }
+        }
     }
 
 }
