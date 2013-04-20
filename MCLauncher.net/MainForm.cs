@@ -26,6 +26,11 @@ namespace MCLauncher.net
         string[] jars = Directory.GetFiles(mcDir + Path.DirectorySeparatorChar + "bin" + Path.DirectorySeparatorChar, "*.jar");
         public MainForm()
         {
+            try
+            {
+                this.Icon = Icon.ExtractAssociatedIcon(Assembly.GetExecutingAssembly().Location);
+            }
+            catch (Exception) { }
             if (!String.IsNullOrEmpty(Properties.Settings.Default.lang))
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(Properties.Settings.Default.lang);
@@ -34,6 +39,11 @@ namespace MCLauncher.net
             if (userName == null || sessionId == null || response == null)
             {
                 Login l = new Login(this);
+                try
+                {
+                    l.Icon = this.Icon;
+                }
+                catch (Exception) { }
                 l.ShowDialog();
                 if (userName == null || sessionId == null || response == null)
                 {
@@ -66,10 +76,13 @@ namespace MCLauncher.net
                 System.Console.WriteLine("Commit ID is " + CommitID);
             }
             //Fix for Mono if libgluezilla is not installed
-            try{
+            try
+            {
                 webBrowser1.Url = new Uri("http://minecraft.digiex.org/intool.php?net=true&version=" + Assembly.GetEntryAssembly().GetName().Version.ToString() + "&lang=" + CultureInfo.CurrentUICulture + "&commit=" + CommitID);
-            }catch(Exception){
-                tabControl.Controls.Remove (mainTab);
+            }
+            catch (Exception)
+            {
+                tabControl.Controls.Remove(mainTab);
                 tabControl.SelectTab(jarManager);
             }
             String javaExec = Util.GetJavaExecutable();
@@ -527,6 +540,11 @@ namespace MCLauncher.net
         private void downloadButton_Click(object sender, EventArgs e)
         {
             DownloadManager dlman = new DownloadManager(this);
+            try
+            {
+                dlman.Icon = this.Icon;
+            }
+            catch (Exception) { }
             dlman.ShowDialog();
             dlman.Close();
             dlman.Dispose();
