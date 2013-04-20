@@ -135,6 +135,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+	<Compile Include="SerializableStringDictionary.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="DownloadManager.fi.resx">
@@ -271,10 +272,4 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
-  <ItemGroup>
-    <ProjectReference Include="..\MCLauncherLibrary\MCLauncherLibrary.csproj">
-      <Project>{1FFAB672-4005-45DC-AE77-2ADD44B7D978}</Project>
-      <Name>MCLauncherLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>
